@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inspiration | Terrain</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body { font-family: 'Montserrat', sans-serif; color: #333; background: #faf6ef; }
+    h1, h2, h3, h4, h5 { font-family: 'Cormorant Garamond', serif; }
+    
+    .project-card {
+      transition: all 0.3s ease;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    
+    .modal-overlay {
+      backdrop-filter: blur(5px);
+    }
+    
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    
+    .gallery-item {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .gallery-item:hover {
+      transform: scale(1.05);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+    }
+    
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 1rem;
+      background: rgba(0,0,0,0.5);
+      border-radius: 50%;
+    }
+    
+    .lightbox-prev {
+      left: 20px;
+    }
+    
+    .lightbox-next {
+      right: 20px;
+    }
+  </style>
+</head>
+<body class="bg-stone-50">
+  <!-- Navigation -->
+  <nav class="w-full bg-white bg-opacity-95 shadow-sm z-50 fixed top-0">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-semibold text-gray-800"><span class="text-[#4A6741]">Terrain</span></a>
+      <div class="hidden md:flex space-x-8">
+        <a href="index.html#home" class="nav-link text-gray-700 hover:text-[#4A6741]">Home</a>
+        <a href="index.html#design-portal" class="nav-link text-gray-700 hover:text-[#4A6741]">Design Portal</a>
+        <a href="index.html#education" class="nav-link text-gray-700 hover:text-[#4A6741]">Education</a>
+        <a href="inspiration.html" class="nav-link text-[#4A6741] font-semibold">Inspiration</a>
+        <a href="pro-tools.html" class="nav-link text-gray-700 hover:text-[#4A6741]">Pro Tools</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="pt-32 pb-20 bg-gradient-to-br from-green-50 to-stone-100">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h1 class="text-5xl font-light mb-6">Portfolio & Inspiration</h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Discover our collection of stunning landscape projects. Each residence showcases unique design solutions, quality craftsmanship, and beautiful outdoor living spaces that transform properties into personal sanctuaries.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Grid -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Beaumont Residence -->
+          <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer" data-project="beaumont">
+            <div class="aspect-[4/3] bg-stone-200 overflow-hidden">
+              <img src="INSPIRATIONS/Beaumont Residence/15-Lascelles-Ave-6-of-15-scaled.jpg" alt="Beaumont Residence" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-medium mb-2">Beaumont Residence</h3>
+              <p class="text-gray-600 mb-4">Modern landscape design with clean lines and sophisticated outdoor living spaces.</p>
+              <div class="flex items-center text-[#4A6741] font-medium">
+                <span>View Project</span>
+                <i class="fas fa-arrow-right ml-2"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dulwich Residence -->
+          <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer" data-project="dulwich">
+            <div class="aspect-[4/3] bg-stone-200 overflow-hidden">
+              <img src="INSPIRATIONS/Dulwich Residence/2-2.jpg" alt="Dulwich Residence" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-medium mb-2">Dulwich Residence</h3>
+              <p class="text-gray-600 mb-4">Elegant garden design featuring water features and lush plantings.</p>
+              <div class="flex items-center text-[#4A6741] font-medium">
+                <span>View Project</span>
+                <i class="fas fa-arrow-right ml-2"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nailsworh Residence -->
+          <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer" data-project="nailsworh">
+            <div class="aspect-[4/3] bg-stone-200 overflow-hidden">
+              <img src="INSPIRATIONS/Nailsworh Residence/42-Mawson-st-4-of-15-scaled.jpg" alt="Nailsworh Residence" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-medium mb-2">Nailsworh Residence</h3>
+              <p class="text-gray-600 mb-4">Contemporary outdoor design with integrated hardscaping and softscaping.</p>
+              <div class="flex items-center text-[#4A6741] font-medium">
+                <span>View Project</span>
+                <i class="fas fa-arrow-right ml-2"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ormiston Residence -->
+          <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer" data-project="ormiston">
+            <div class="aspect-[4/3] bg-stone-200 overflow-hidden">
+              <img src="INSPIRATIONS/Ormiston Residence/Ormiston Residence.jpg" alt="Ormiston Residence" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-medium mb-2">Ormiston Residence</h3>
+              <p class="text-gray-600 mb-4">Luxury landscape design with premium materials and custom features.</p>
+              <div class="flex items-center text-[#4A6741] font-medium">
+                <span>View Project</span>
+                <i class="fas fa-arrow-right ml-2"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ryde Residence -->
+          <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer" data-project="ryde">
+            <div class="aspect-[4/3] bg-stone-200 overflow-hidden">
+              <img src="INSPIRATIONS/Ryde Residence/Yan-1.jpg" alt="Ryde Residence" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-medium mb-2">Ryde Residence</h3>
+              <p class="text-gray-600 mb-4">Family-friendly outdoor space with entertainment areas and sustainable design.</p>
+              <div class="flex items-center text-[#4A6741] font-medium">
+                <span>View Project</span>
+                <i class="fas fa-arrow-right ml-2"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Parkside Residence -->
+          <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer" data-project="parkside">
+            <div class="aspect-[4/3] bg-stone-200 overflow-hidden">
+              <img src="INSPIRATIONS/Parkside Residence/Parkside-5-of-25-scaled.jpg" alt="Parkside Residence" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-medium mb-2">Parkside Residence</h3>
+              <p class="text-gray-600 mb-4">Comprehensive landscape transformation with multiple outdoor living zones.</p>
+              <div class="flex items-center text-[#4A6741] font-medium">
+                <span>View Project</span>
+                <i class="fas fa-arrow-right ml-2"></i>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Modal -->
+  <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden modal-overlay">
+    <div class="flex items-center justify-center min-h-screen p-4">
+      <div class="bg-white rounded-lg shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden">
+        <!-- Modal Header -->
+        <div class="bg-[#4A6741] text-white p-6 flex justify-between items-center">
+          <div>
+            <h2 id="modal-project-title" class="text-2xl font-light">Project Details</h2>
+            <p class="text-green-100 mt-1">Explore the complete project gallery</p>
+          </div>
+          <button id="close-project-modal" class="text-white hover:text-green-200 text-2xl">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        
+        <!-- Modal Content -->
+        <div class="p-6 overflow-y-auto max-h-[calc(90vh-120px)]">
+          <div id="project-description" class="mb-8">
+            <!-- Project description will be loaded here -->
+          </div>
+          
+          <div id="project-gallery" class="gallery-grid">
+            <!-- Gallery images will be loaded here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <div class="lightbox-close" onclick="closeLightbox()">
+      <i class="fas fa-times"></i>
+    </div>
+    <div class="lightbox-nav lightbox-prev" onclick="previousImage()">
+      <i class="fas fa-chevron-left"></i>
+    </div>
+    <div class="lightbox-nav lightbox-next" onclick="nextImage()">
+      <i class="fas fa-chevron-right"></i>
+    </div>
+    <img id="lightbox-image" src="" alt="">
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="text-center">
+        <h3 class="text-2xl font-light mb-4">Terrain</h3>
+        <p class="text-gray-400">Creating beautiful outdoor spaces that inspire and endure.</p>
+        <div class="mt-8">
+          <a href="index.html" class="text-[#4A6741] hover:text-green-400 mx-2">Home</a>
+          <a href="inspiration.html" class="text-[#4A6741] hover:text-green-400 mx-2">Inspiration</a>
+          <a href="pro-tools.html" class="text-[#4A6741] hover:text-green-400 mx-2">Pro Tools</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Project data
+    const projects = {
+      beaumont: {
+        title: "Beaumont Residence",
+        description: `
+          <div class="space-y-6">
+            <div class="bg-gray-50 p-6 rounded-lg">
+              <h3 class="text-xl font-semibold mb-3">Project Overview</h3>
+              <p class="text-gray-700 mb-4">The Beaumont Residence features a modern landscape design that seamlessly integrates indoor and outdoor living spaces. This project showcases clean architectural lines, sophisticated material choices, and thoughtful plant selections that create a cohesive and elegant outdoor environment.</p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <h4 class="font-semibold mb-2">Key Features:</h4>
+                  <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Modern concrete and stone hardscaping</li>
+                    <li>Integrated outdoor dining area</li>
+                    <li>Drought-tolerant plant selections</li>
+                    <li>Contemporary water feature</li>
+                    <li>Smart lighting system</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Design Elements:</h4>
+                  <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Minimalist design approach</li>
+                    <li>Neutral color palette</li>
+                    <li>Geometric forms and patterns</li>
+                    <li>Sustainable materials</li>
+                    <li>Low-maintenance landscaping</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        `,
+        images: [
+          "INSPIRATIONS/Beaumont Residence/15-Lascelles-Ave-6-of-15-scaled.jpg"
+        ]
+      },
+      dulwich: {
+        title: "Dulwich Residence",
+        description: `
+          <div class="space-y-6">
+            <div class="bg-gray-50 p-6 rounded-lg">
+              <h3 class="text-xl font-semibold mb-3">Project Overview</h3>
+              <p class="text-gray-700 mb-4">The Dulwich Residence demonstrates the perfect balance between formal garden design and natural elements. This project features elegant water features, carefully curated plant selections, and sophisticated outdoor living spaces that enhance the property's architectural beauty.</p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <h4 class="font-semibold mb-2">Key Features:</h4>
+                  <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Elegant water features</li>
+                    <li>Formal garden beds</li>
+                    <li>Stone pathways and patios</li>
+                    <li>Mature tree specimens</li>
+                    <li>Integrated seating areas</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Design Elements:</h4>
+                  <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Classical garden design</li>
+                    <li>Symmetrical layouts</li>
+                    <li>Layered plantings</li>
+                    <li>Natural stone materials</li>
+                    <li>Seasonal color interest</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        `,
+        images: [
+          "INSPIRATIONS/Dulwich Residence/2-2.jpg",
+          "INSPIRATIONS/Dulwich Residence/2222.jpg",
+          "INSPIRATIONS/Dulwich Residence/MG_0575.jpg"
+        ]
+      },
+      nailsworh: {
+        title: "Nailsworh Residence",
+        description: `
+          <div class="space-y-6">
+            <div class="bg-gray-50 p-6 rounded-lg">
+              <h3 class="text-xl font-semibold mb-3">Project Overview</h3>
+              <p class="text-gray-700 mb-4">The Nailsworh Residence showcases contemporary landscape design with a focus on functionality and aesthetic appeal. This project integrates modern hardscaping with lush plantings to create versatile outdoor spaces that accommodate both relaxation and entertainment.</p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <h4 class="font-semibold mb-2">Key Features:</h4>
+                  <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Contemporary hardscaping</li>
+                    <li>Multi-level outdoor spaces</li>
+                    <li>Integrated lighting design</li>
+                    <li>Diverse plant palette</li>
+                    <li>Outdoor kitchen area</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Design Elements:</h4>
+                  <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Modern design language</li>
+                    <li>Mixed material textures</li>
+                    <li>Dynamic spatial planning</li>
+                    <li>Year-round interest</li>
+                    <li>Sustainable practices</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        `,
+        images: [
+          "INSPIRATIONS/Nailsworh Residence/42-Mawson-st-4-of-15-scaled.jpg",
+          "INSPIRATIONS/Nailsworh Residence/42-Mawson-st-7-of-15-1-scaled.jpg",
+          "INSPIRATIONS/Nailsworh Residence/42-Mawson-st-8-of-15-scaled.jpg",
+          "INSPIRATIONS/Nailsworh Residence/42-Mawson-st-9-of-15-scaled.jpg"
+        ]
+      },
+      ormiston: {
+        title: "Ormiston Residence",
+        description: `
+          <div class="space-y-6">
+            <div class="bg-gray-50 p-6 rounded-lg">
+              <h3 class="text-xl font-semibold mb-3">Project Overview</h3>
+              <p class="text-gray-700 mb-4">The Ormiston Residence represents luxury landscape design at its finest. This comprehensive project features premium materials, custom features, and meticulous attention to detail, creating an outdoor environment that rivals the finest resorts and estates.</p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <h4 class="font-semibold mb-2">Key Features:</h4>
+                  <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Premium stone and tile work</li>
+                    <li>Custom water features</li>
+                    <li>Luxury outdoor living spaces</li>
+                    <li>Professional lighting design</li>
+                    <li>High-end plant specimens</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Design Elements:</h4>
+                  <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Luxury aesthetic</li>
+                    <li>Premium materials</li>
+                    <li>Custom craftsmanship</li>
+                    <li>Sophisticated color palette</li>
+                    <li>Exclusive plant selections</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        `,
+        images: [
+          "INSPIRATIONS/Ormiston Residence/Ormiston Residence.jpg",
+          "INSPIRATIONS/Ormiston Residence/图片_20250422163514-scaled.jpg",
+          "INSPIRATIONS/Ormiston Residence/图片_20250422163526-scaled.jpg",
+          "INSPIRATIONS/Ormiston Residence/图片_20250422163533.jpg"
+        ]
+      },
+      ryde: {
+        title: "Ryde Residence",
+        description: `
+          <div class="space-y-6">
+            <div class="bg-gray-50 p-6 rounded-lg">
+              <h3 class="text-xl font-semibold mb-3">Project Overview</h3>
+              <p class="text-gray-700 mb-4">The Ryde Residence focuses on creating family-friendly outdoor spaces that promote togetherness and outdoor living. This project balances practical functionality with beautiful design, ensuring the landscape serves the needs of a growing family while maintaining aesthetic appeal.</p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <h4 class="font-semibold mb-2">Key Features:</h4>
+                  <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Family entertainment areas</li>
+                    <li>Safe play spaces</li>
+                    <li>Durable materials</li>
+                    <li>Easy maintenance design</li>
+                    <li>Outdoor dining spaces</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Design Elements:</h4>
+                  <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Family-oriented layout</li>
+                    <li>Durable construction</li>
+                    <li>Low-maintenance plants</li>
+                    <li>Safe design features</li>
+                    <li>Versatile spaces</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        `,
+        images: [
+          "INSPIRATIONS/Ryde Residence/Yan-1.jpg",
+          "INSPIRATIONS/Ryde Residence/Yan-2-scaled (1).jpg",
+          "INSPIRATIONS/Ryde Residence/Yan-4.jpg",
+          "INSPIRATIONS/Ryde Residence/Yan-9-scaled.jpg",
+          "INSPIRATIONS/Ryde Residence/Yan-11-scaled.jpg",
+          "INSPIRATIONS/Ryde Residence/Yan-13-scaled.jpg",
+          "INSPIRATIONS/Ryde Residence/Yan-15.jpg",
+          "INSPIRATIONS/Ryde Residence/Yan-16.jpg"
+        ]
+      },
+      parkside: {
+        title: "Parkside Residence",
+        description: `
+          <div class="space-y-6">
+            <div class="bg-gray-50 p-6 rounded-lg">
+              <h3 class="text-xl font-semibold mb-3">Project Overview</h3>
+              <p class="text-gray-700 mb-4">The Parkside Residence represents a comprehensive landscape transformation that creates multiple outdoor living zones within a cohesive design. This project demonstrates how thoughtful planning and quality execution can maximize the potential of any outdoor space.</p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <h4 class="font-semibold mb-2">Key Features:</h4>
+                  <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Multiple outdoor zones</li>
+                    <li>Comprehensive hardscaping</li>
+                    <li>Integrated plant design</li>
+                    <li>Professional lighting</li>
+                    <li>Custom features</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Design Elements:</h4>
+                  <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Zoned design approach</li>
+                    <li>Quality materials</li>
+                    <li>Year-round interest</li>
+                    <li>Professional execution</li>
+                    <li>Comprehensive planning</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        `,
+        images: [
+          "INSPIRATIONS/Parkside Residence/Parkside-1-of-25-scaled.jpg",
+          "INSPIRATIONS/Parkside Residence/Parkside-2-of-25-scaled.jpg",
+          "INSPIRATIONS/Parkside Residence/Parkside-3-of-25-scaled.jpg",
+          "INSPIRATIONS/Parkside Residence/Parkside-4-of-25-scaled.jpg",
+          "INSPIRATIONS/Parkside Residence/Parkside-5-of-25-scaled.jpg",
+          "INSPIRATIONS/Parkside Residence/Parkside-13-of-25-scaled.jpg",
+          "INSPIRATIONS/Parkside Residence/Parkside-14-of-25-scaled.jpg",
+          "INSPIRATIONS/Parkside Residence/Parkside-15-of-25-scaled.jpg",
+          "INSPIRATIONS/Parkside Residence/Parkside-17-of-25-scaled.jpg",
+          "INSPIRATIONS/Parkside Residence/Parkside-19-of-25-scaled.jpg"
+        ]
+      }
+    };
+
+    // Modal functionality
+    const projectModal = document.getElementById('project-modal');
+    const closeProjectModal = document.getElementById('close-project-modal');
+    const modalTitle = document.getElementById('modal-project-title');
+    const projectDescription = document.getElementById('project-description');
+    const projectGallery = document.getElementById('project-gallery');
+
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    let currentImageIndex = 0;
+    let currentImages = [];
+
+    // Project card click handlers
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('click', function() {
+        const projectKey = this.dataset.project;
+        const project = projects[projectKey];
+        
+        if (project) {
+          modalTitle.textContent = project.title;
+          projectDescription.innerHTML = project.description;
+          
+          // Load gallery images
+          projectGallery.innerHTML = project.images.map((image, index) => `
+            <div class="gallery-item" onclick="openLightbox(${index})">
+              <img src="${image}" alt="${project.title} - Image ${index + 1}">
+            </div>
+          `).join('');
+          
+          // Set current images for lightbox
+          currentImages = project.images;
+          
+          projectModal.classList.remove('hidden');
+        }
+      });
+    });
+
+    // Close modal
+    closeProjectModal.addEventListener('click', () => {
+      projectModal.classList.add('hidden');
+    });
+
+    // Close modal when clicking outside
+    projectModal.addEventListener('click', (e) => {
+      if (e.target === projectModal) {
+        projectModal.classList.add('hidden');
+      }
+    });
+
+    // Lightbox functions
+    function openLightbox(index) {
+      currentImageIndex = index;
+      lightboxImage.src = currentImages[index];
+      lightbox.style.display = 'flex';
+    }
+
+    function closeLightbox() {
+      lightbox.style.display = 'none';
+    }
+
+    function previousImage() {
+      currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
+      lightboxImage.src = currentImages[currentImageIndex];
+    }
+
+    function nextImage() {
+      currentImageIndex = (currentImageIndex + 1) % currentImages.length;
+      lightboxImage.src = currentImages[currentImageIndex];
+    }
+
+    // Keyboard navigation for lightbox
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.style.display === 'flex') {
+        if (e.key === 'Escape') {
+          closeLightbox();
+        } else if (e.key === 'ArrowLeft') {
+          previousImage();
+        } else if (e.key === 'ArrowRight') {
+          nextImage();
+        }
+      }
+    });
+
+    // Close lightbox when clicking outside image
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+  </script>
+</body>
+</html> 

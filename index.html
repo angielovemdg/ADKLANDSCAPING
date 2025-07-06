@@ -1,0 +1,2673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terrain | Premium Landscape Design & Construction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900' viewBox='0 0 1600 900'%3E%3Crect fill='%23304030' width='1600' height='900'/%3E%3Cg fill-opacity='0.1'%3E%3Cpath fill='%23304030' d='M1600 900H0V0h1600v900z'/%3E%3Cpath fill='%23304030' d='M1600 900H0V0h1600v900z'/%3E%3Cpath fill='%23304030' d='M1600 900H0V0h1600v900z'/%3E%3C/g%3E%3Cg fill-opacity='0.08'%3E%3Ccircle fill='%23ffffff' cx='400' cy='400' r='600'/%3E%3Ccircle fill='%23ffffff' cx='1200' cy='500' r='400'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Hero Image Options */
+        .hero-section.hero-1 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("STYLES/Formal-Modern Minimalist/Hero.jpg");
+        }
+        
+        .hero-section.hero-2 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("STYLES/Mediterranean-Drought tolerant/25c79064651514b85d81ebeeb134dc23.jpg");
+        }
+        
+        .hero-section.hero-3 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("STYLES/Tropical-lush planting/Hero.jpg");
+        }
+        
+        .hero-section.hero-4 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("STYLES/Naturalistic styles/Step into a modern Nantucket sanctuary complete with a secret garden.jpg");
+        }
+        
+        .hero-section.hero-5 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("STYLES/Australian natives/Hero.jpg");
+        }
+        
+        .hero-section.hero-6 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("STYLES/Harmony-Zen garden/Hero.jpg");
+        }
+        
+        /* Design Portal Styles */
+        .step-indicator {
+            transition: all 0.3s ease;
+        }
+        
+        .step-content {
+            transition: opacity 0.3s ease;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .garden-style-option input:checked + div {
+            border-color: #4A6741;
+            background-color: #f0f9ff;
+        }
+        
+        .garden-style-option:hover div {
+            border-color: #4A6741;
+            transform: translateY(-2px);
+        }
+        
+        /* Form Styles */
+        .btn-primary {
+            background: #4A6741;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background: #3d5a35;
+            transform: translateY(-1px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid #4A6741;
+            color: #4A6741;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: #4A6741;
+            color: white;
+        }
+        
+        /* Progress Bar Animations */
+        @keyframes progressPulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        
+        .animate-pulse {
+            animation: progressPulse 0.5s ease-in-out;
+        }
+        
+        #price-progress-bar {
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 10px rgba(74, 103, 65, 0.3);
+        }
+        
+        #price-progress-container {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        #price-progress-container.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        #price-progress-container.hide {
+            transform: translateY(-10px);
+            opacity: 0;
+        }
+        
+        /* Range Slider Styles */
+        .slider {
+            -webkit-appearance: none;
+            appearance: none;
+            background: #e5e7eb;
+            outline: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #4A6741;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .slider::-webkit-slider-thumb:hover {
+            background: #5a7a51;
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .slider::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #4A6741;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .slider::-moz-range-thumb:hover {
+            background: #5a7a51;
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .slider::-webkit-slider-track {
+            background: linear-gradient(to right, #4A6741 0%, #4A6741 50%, #e5e7eb 50%, #e5e7eb 100%);
+            border-radius: 8px;
+            height: 8px;
+        }
+        
+        .slider::-moz-range-track {
+            background: linear-gradient(to right, #4A6741 0%, #4A6741 50%, #e5e7eb 50%, #e5e7eb 100%);
+            border-radius: 8px;
+            height: 8px;
+            border: none;
+        }
+        
+        /* ... (rest of the CSS will be added in the next step) ... */
+    </style>
+</head>
+<body class="bg-stone-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white bg-opacity-95 shadow-sm z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-semibold text-gray-800">
+                    <span class="text-[#4A6741]">Terrain</span>
+                </h1>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-gray-700 hover:text-[#4A6741]">Home</a>
+                <a href="#design-portal" class="nav-link text-gray-700 hover:text-[#4A6741]">Design Portal</a>
+                <a href="#education" class="nav-link text-gray-700 hover:text-[#4A6741]">Education</a>
+                <a href="#inspiration" class="nav-link text-gray-700 hover:text-[#4A6741]">Inspiration</a>
+                <a href="pro-tools.html" class="nav-link text-gray-700 hover:text-[#4A6741]">Pro Tools</a>
+                <a href="measurement-tool.html" class="nav-link text-gray-700 hover:text-[#4A6741]">Measurement Tool</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white w-full">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="#home" class="text-gray-700 hover:text-[#4A6741] py-2">Home</a>
+                <a href="#design-portal" class="text-gray-700 hover:text-[#4A6741] py-2">Design Portal</a>
+                <a href="#education" class="text-gray-700 hover:text-[#4A6741] py-2">Education</a>
+                <a href="#inspiration" class="text-gray-700 hover:text-[#4A6741] py-2">Inspiration</a>
+                <a href="pro-tools.html" class="text-gray-700 hover:text-[#4A6741] py-2">Pro Tools</a>
+                <a href="measurement-tool.html" class="text-gray-700 hover:text-[#4A6741] py-2">Measurement Tool</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section hero-1 min-h-screen flex items-center justify-center pt-16">
+        <div class="container mx-auto px-4 text-center text-white">
+            <h1 class="text-5xl md:text-7xl font-light mb-6">Design your dream backyard</h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">Your design & build one stop shop</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#design-portal" class="btn-primary px-8 py-3 rounded-md text-lg font-medium">
+                    Design Your Space
+                </a>
+                <a href="#inspiration" class="btn-secondary px-8 py-3 rounded-md text-lg font-medium text-white">
+                    Explore Our Work
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Design Portal Section -->
+    <section id="design-portal" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-light mb-4">Interactive Design Portal</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Create your custom landscape design by following our simple step-by-step process. Visualize your dream space and get an instant quote.</p>
+            </div>
+            <div class="max-w-5xl mx-auto bg-stone-50 rounded-lg shadow-lg p-8">
+                <!-- Steps Indicator -->
+                <div class="flex justify-between mb-8 relative">
+                    <div class="absolute top-1/2 h-1 bg-gray-200 w-full -z-10"></div>
+                    <div class="step-indicator active w-10 h-10 rounded-full bg-[#4A6741] text-white flex items-center justify-center font-medium z-10">1</div>
+                    <div class="step-indicator w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-medium z-10">2</div>
+                    <div class="step-indicator w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-medium z-10">3</div>
+                    <div class="step-indicator w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-medium z-10">4</div>
+                    <div class="step-indicator w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-medium z-10">5</div>
+                    <div class="step-indicator w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-medium z-10">6</div>
+                </div>
+                <form id="estimator-form" class="space-y-8">
+                    <!-- Step 1: Site Parameters Configuration (English, with Terrain) -->
+                    <div class="step-content active fade-in" id="step-1">
+                        <h3 class="text-2xl font-light mb-6">Step 1: Site Parameters & Style</h3>
+                        <div class="mb-6 text-gray-600">Configure your site parameters and select a style to get an accurate estimate for your landscape design project.</div>
+                        
+                        <!-- 1. Site Area Input -->
+                        <div class="bg-white rounded-lg shadow p-6 mb-8">
+                            <h4 class="text-xl font-medium mb-4 text-[#4A6741]">1. Site Area</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-gray-700 mb-2 font-medium">Enter site area in m²</label>
+                                    <input type="number" id="site-area" min="1" step="1" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4A6741] focus:border-[#4A6741]" placeholder="e.g. 100">
+                                </div>
+                                <div class="flex flex-col justify-center">
+                                    <div class="text-sm text-gray-700 mb-2">Base Rate: <span id="basic-price" class="font-bold text-lg">0</span> AUD</div>
+                                    <div class="text-sm text-gray-700">Total Price (with style): <span id="total-price" class="font-bold text-lg">0</span> AUD</div>
+                                </div>
+                            </div>
+                            <div class="mt-4 p-3 bg-orange-50 border border-orange-200 rounded text-orange-800 text-sm" id="basic-note">
+                                This basic price is based on grass 70%, boundary plants in garden bed 30%, exclude any hardscape. More refined elements can be added on next.
+                            </div>
+                        </div>
+                        <!-- 2. Site Terrain -->
+                        <div class="bg-white rounded-lg shadow p-6 mb-8">
+                            <h4 class="text-xl font-medium mb-4 text-[#4A6741]">2. Site Terrain</h4>
+                            <div class="flex gap-6">
+                                <label class="flex items-center cursor-pointer">
+                                    <input type="radio" name="site_terrain" value="flat" class="mr-2">
+                                    <span>Flat</span>
+                                </label>
+                                <label class="flex items-center cursor-pointer">
+                                    <input type="radio" name="site_terrain" value="slope" class="mr-2">
+                                    <span>Slope</span>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- 3. Style Selection -->
+                        <div class="bg-white rounded-lg shadow p-6 mb-8">
+                            <h4 class="text-xl font-medium mb-4 text-[#4A6741]">3. Select Your Garden Style</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <label class="style-option cursor-pointer flex flex-col items-center border-2 border-gray-200 rounded-lg p-4 hover:border-[#4A6741] transition-all" data-style="australian">
+                                    <img src="STYLES/Australian natives/Hero.jpg" class="w-full h-32 object-cover rounded mb-2" alt="Australian Natives">
+                                    <input type="radio" name="garden_style" value="australian" class="hidden">
+                                    <div class="font-medium">Australian Natives</div>
+                                    <div class="text-xs text-gray-500">Hard/Soft: 30%/70%</div>
+                                    <div class="style-coefficient text-xs text-[#4A6741]">Coefficient: 1.2</div>
+                                </label>
+                                <label class="style-option cursor-pointer flex flex-col items-center border-2 border-gray-200 rounded-lg p-4 hover:border-[#4A6741] transition-all" data-style="formal">
+                                    <img src="STYLES/Formal-Modern Minimalist/Hero.jpg" class="w-full h-32 object-cover rounded mb-2" alt="Formal-Modern Minimalist">
+                                    <input type="radio" name="garden_style" value="formal" class="hidden">
+                                    <div class="font-medium">Formal-Modern Minimalist</div>
+                                    <div class="text-xs text-gray-500">Hard/Soft: 60%/40%</div>
+                                    <div class="style-coefficient text-xs text-[#4A6741]">Coefficient: 1.8</div>
+                                </label>
+                                <label class="style-option cursor-pointer flex flex-col items-center border-2 border-gray-200 rounded-lg p-4 hover:border-[#4A6741] transition-all" data-style="zen">
+                                    <img src="STYLES/Harmony-Zen garden/Hero.jpg" class="w-full h-32 object-cover rounded mb-2" alt="Harmony-Zen garden">
+                                    <input type="radio" name="garden_style" value="zen" class="hidden">
+                                    <div class="font-medium">Harmony-Zen garden</div>
+                                    <div class="text-xs text-gray-500">Hard/Soft: 30%/70%</div>
+                                    <div class="style-coefficient text-xs text-[#4A6741]">Coefficient: 1.2</div>
+                                </label>
+                                <label class="style-option cursor-pointer flex flex-col items-center border-2 border-gray-200 rounded-lg p-4 hover:border-[#4A6741] transition-all" data-style="mediterranean">
+                                    <img src="STYLES/Mediterranean-Drought tolerant/25c79064651514b85d81ebeeb134dc23.jpg" class="w-full h-32 object-cover rounded mb-2" alt="Mediterranean-Drought tolerant">
+                                    <input type="radio" name="garden_style" value="mediterranean" class="hidden">
+                                    <div class="font-medium">Mediterranean-Drought tolerant</div>
+                                    <div class="text-xs text-gray-500">Hard/Soft: 40%/60%</div>
+                                    <div class="style-coefficient text-xs text-[#4A6741]">Coefficient: 1.5</div>
+                                </label>
+                                <label class="style-option cursor-pointer flex flex-col items-center border-2 border-gray-200 rounded-lg p-4 hover:border-[#4A6741] transition-all" data-style="naturalistic">
+                                    <img src="STYLES/Naturalistic styles/Step into a modern Nantucket sanctuary complete with a secret garden.jpg" class="w-full h-32 object-cover rounded mb-2" alt="Naturalistic styles">
+                                    <input type="radio" name="garden_style" value="naturalistic" class="hidden">
+                                    <div class="font-medium">Naturalistic styles</div>
+                                    <div class="text-xs text-gray-500">Hard/Soft: 20%/80%</div>
+                                    <div class="style-coefficient text-xs text-[#4A6741]">Coefficient: 1.0</div>
+                                </label>
+                                <label class="style-option cursor-pointer flex flex-col items-center border-2 border-gray-200 rounded-lg p-4 hover:border-[#4A6741] transition-all" data-style="tropical">
+                                    <img src="STYLES/Tropical-lush planting/Hero.jpg" class="w-full h-32 object-cover rounded mb-2" alt="Tropical-lush planting">
+                                    <input type="radio" name="garden_style" value="tropical" class="hidden">
+                                    <div class="font-medium">Tropical-lush planting</div>
+                                    <div class="text-xs text-gray-500">Hard/Soft: 40%/60%</div>
+                                    <div class="style-coefficient text-xs text-[#4A6741]">Coefficient: 1.5</div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="flex justify-end">
+                            <button type="button" class="next-step btn-primary px-6 py-3 rounded-md text-lg font-medium opacity-50 cursor-not-allowed" disabled>Continue</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Basic & Addon Elements (English Version) -->
+                    <div class="step-content hidden fade-in" id="step-2">
+                        <h3 class="text-2xl font-light mb-6">Step 2: Select Basic & Add-on Elements</h3>
+                        <div class="mb-6 text-gray-600">Select your basic and add-on elements. Images are responsive. Selecting an option will add to your price. You can enter area/size for real-time price calculation.</div>
+                        <!-- Basic Elements Section -->
+                        <div class="bg-white rounded-lg shadow p-6 mb-8">
+                            <h4 class="text-xl font-medium mb-4 text-[#4A6741]">Basic Elements</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <label class="basic-option flex flex-col items-center border-2 border-gray-200 rounded-lg p-4 cursor-pointer hover:border-[#4A6741] transition-all">
+                                    <img src="Images/Lawn_grass/Hero.jpg" class="w-full h-auto rounded mb-2" alt="Grass">
+                                    <input type="checkbox" id="basic-grass" class="hidden">
+                                    <div class="font-medium">Grass</div>
+                                </label>
+                                <label class="basic-option flex flex-col items-center border-2 border-gray-200 rounded-lg p-4 cursor-pointer hover:border-[#4A6741] transition-all">
+                                    <img src="Images/Garden_beds_Plantings/Hero.jpg" class="w-full h-auto rounded mb-2" alt="Garden Bed">
+                                    <input type="checkbox" id="basic-garden" class="hidden">
+                                    <div class="font-medium">Garden Bed</div>
+                                </label>
+                                <label class="basic-option flex flex-col items-center border-2 border-gray-200 rounded-lg p-4 cursor-pointer hover:border-[#4A6741] transition-all">
+                                    <img src="Images/Exposed_aggregate_concrete/Hero.jpg" class="w-full h-auto rounded mb-2" alt="Hardscape">
+                                    <input type="checkbox" id="basic-hard" class="hidden">
+                                    <div class="font-medium">Hardscape</div>
+                                </label>
+                            </div>
+                            <div class="mt-4 text-sm text-gray-700">Basic Factor: <span id="basic-factor">1</span></div>
+                        </div>
+                        <!-- Add-on Function Spaces -->
+                        <div class="bg-white rounded-lg shadow p-6 mb-8">
+                            <h4 class="text-xl font-medium mb-4 text-[#4A6741]">Add-on Function Spaces</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <!-- Fire pit -->
+                                <div class="addon-card border-2 border-gray-200 rounded-lg p-4 flex flex-col items-center cursor-pointer hover:border-[#4A6741] transition-all" data-addon="firepit">
+                                    <img src="Images/Outdoor_seatings_firepit/Hero.jpg" class="w-full h-auto rounded mb-2" alt="Fire pit">
+                                    <div class="font-medium mb-1">Fire Pit Space</div>
+                                    <div class="text-xs text-gray-500 mb-2">A$2,000 - A$15,000</div>
+                                    <button class="select-addon bg-[#4A6741] text-white px-3 py-1 rounded mb-2">Select</button>
+                                    <div class="addon-options hidden w-full">
+                                        <label class="block text-xs text-gray-600 mb-1">Area/Size (optional): <input type="number" class="addon-size border rounded px-2 py-1 w-20 ml-2"></label>
+                                        <div class="text-xs text-gray-700">Real-time price range: <span class="addon-price-range">-</span></div>
+                                    </div>
+                                </div>
+                                <!-- Outdoor kitchen -->
+                                <div class="addon-card border-2 border-gray-200 rounded-lg p-4 flex flex-col items-center cursor-pointer hover:border-[#4A6741] transition-all" data-addon="kitchen">
+                                    <img src="Images/Outdoor_kitchen/Hero.jpg" class="w-full h-auto rounded mb-2" alt="Outdoor kitchen">
+                                    <div class="font-medium mb-1">Outdoor Kitchen</div>
+                                    <div class="text-xs text-gray-500 mb-2">A$6,000 - A$25,000</div>
+                                    <button class="select-addon bg-[#4A6741] text-white px-3 py-1 rounded mb-2">Select</button>
+                                    <div class="addon-options hidden w-full">
+                                        <label class="block text-xs text-gray-600 mb-1">Area/Size (optional): <input type="number" class="addon-size border rounded px-2 py-1 w-20 ml-2"></label>
+                                        <div class="text-xs text-gray-700">Real-time price range: <span class="addon-price-range">-</span></div>
+                                    </div>
+                                </div>
+                                <!-- Dining/gathering area -->
+                                <div class="addon-card border-2 border-gray-200 rounded-lg p-4 flex flex-col items-center cursor-pointer hover:border-[#4A6741] transition-all" data-addon="dining">
+                                    <img src="Images/Decking/Hero.jpg" class="w-full h-auto rounded mb-2" alt="Dining area">
+                                    <div class="font-medium mb-1">Dining/Gathering Area</div>
+                                    <div class="text-xs text-gray-500 mb-2">A$3,000 - A$20,000</div>
+                                    <button class="select-addon bg-[#4A6741] text-white px-3 py-1 rounded mb-2">Select</button>
+                                    <div class="addon-options hidden w-full">
+                                        <label class="block text-xs text-gray-600 mb-1">Area/Size (optional): <input type="number" class="addon-size border rounded px-2 py-1 w-20 ml-2"></label>
+                                        <div class="text-xs text-gray-700">Real-time price range: <span class="addon-price-range">-</span></div>
+                                    </div>
+                                </div>
+                                <!-- Veggie gardens -->
+                                <div class="addon-card border-2 border-gray-200 rounded-lg p-4 flex flex-col items-center cursor-pointer hover:border-[#4A6741] transition-all" data-addon="veggie">
+                                    <img src="Images/Garden_beds_Plantings/Parkside (5 of 25).jpg" class="w-full h-auto rounded mb-2" alt="Veggie gardens">
+                                    <div class="font-medium mb-1">Veggie Gardens</div>
+                                    <div class="text-xs text-gray-500 mb-2">A$1,000 - A$8,000</div>
+                                    <button class="select-addon bg-[#4A6741] text-white px-3 py-1 rounded mb-2">Select</button>
+                                    <div class="addon-options hidden w-full">
+                                        <label class="block text-xs text-gray-600 mb-1">Area/Size (optional): <input type="number" class="addon-size border rounded px-2 py-1 w-20 ml-2"></label>
+                                        <div class="text-xs text-gray-700">Real-time price range: <span class="addon-price-range">-</span></div>
+                                    </div>
+                                </div>
+                                <!-- Raised garden beds -->
+                                <div class="addon-card border-2 border-gray-200 rounded-lg p-4 flex flex-col items-center cursor-pointer hover:border-[#4A6741] transition-all" data-addon="raisedbed">
+                                    <img src="Images/Garden_beds_Plantings/Hero.jpg" class="w-full h-auto rounded mb-2" alt="Raised garden beds">
+                                    <div class="font-medium mb-1">Raised Garden Beds</div>
+                                    <div class="text-xs text-gray-500 mb-2">A$1,500 - A$10,000</div>
+                                    <button class="select-addon bg-[#4A6741] text-white px-3 py-1 rounded mb-2">Select</button>
+                                    <div class="addon-options hidden w-full">
+                                        <label class="block text-xs text-gray-600 mb-1">Area/Size (optional): <input type="number" class="addon-size border rounded px-2 py-1 w-20 ml-2"></label>
+                                        <div class="text-xs text-gray-700">Real-time price range: <span class="addon-price-range">-</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8 flex justify-between">
+                            <button type="button" class="prev-step btn-secondary px-6 py-2 rounded-md">Back</button>
+                            <button type="button" class="next-step btn-primary px-6 py-2 rounded-md">Continue</button>
+                        </div>
+                        <div class="mt-4 text-right text-lg text-[#4A6741]">Step 2 Total: <span id="step2-total">0</span> AUD</div>
+                    </div>
+
+                    <!-- Step 3: Select Garden Feature & Elements -->
+                    <div class="step-content hidden fade-in" id="step-3">
+                        <h3 class="text-2xl font-light mb-6">Step 3: Select Garden Feature & Elements</h3>
+                        <div class="mb-6 text-gray-600">Choose the garden features and elements you'd like to include in your design. Click an option card to select it. Each option shows image, price range, and description.</div>
+                        
+                        <!-- Category Navigation -->
+                        <div class="flex justify-center mb-8">
+                            <div class="flex space-x-2 bg-gray-100 p-1 rounded-lg">
+                                <button class="category-nav-btn px-4 py-2 rounded-md font-medium transition-all" data-category="basic" data-active="true">Basic Elements</button>
+                                <button class="category-nav-btn px-4 py-2 rounded-md font-medium transition-all" data-category="features" data-active="false">Features & Add-ons</button>
+                                <button class="category-nav-btn px-4 py-2 rounded-md font-medium transition-all" data-category="systems" data-active="false">Systems</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Category 1: Basic Elements -->
+                        <div class="category-content" id="category-basic">
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <!-- Lawn/Grass -->
+                                <div class="feature-group">
+                                    <div class="font-semibold text-lg mb-2">Lawn/Grass</div>
+                                    <div class="grid grid-cols-1 gap-4">
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200 mb-2" data-element="lawn_grass" data-option="0">
+                                            <img src="Images/Lawn_grass/Hero.jpg" alt="Buffalo Grass" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Buffalo Grass</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$30-40/m²</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Soft, shade-tolerant, low maintenance</div>
+                                        </div>
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200" data-element="lawn_grass" data-option="1">
+                                            <img src="Images/Lawn_grass/e68a4489b820c42250fc9546ec15eefb.jpg" alt="Kikuyu Grass" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Kikuyu Grass</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$20-30/m²</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Fast-growing, drought-tolerant, budget friendly</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Garden Beds & Plantings -->
+                                <div class="feature-group">
+                                    <div class="font-semibold text-lg mb-2">Garden Beds & Plantings</div>
+                                    <div class="grid grid-cols-1 gap-4">
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200 mb-2" data-element="garden_beds_plantings" data-option="0">
+                                            <img src="Images/Garden_beds_Plantings/Hero.jpg" alt="Native Planting" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Native Planting</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$80-120/m²</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Low water, local species, habitat friendly</div>
+                                        </div>
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200" data-element="garden_beds_plantings" data-option="1">
+                                            <img src="Images/Garden_beds_Plantings/Parkside (5 of 25).jpg" alt="Exotic Planting" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Exotic Planting</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$100-180/m²</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Colorful, lush, seasonal interest</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Site Preparation -->
+                                <div class="feature-group">
+                                    <div class="font-semibold text-lg mb-2">Site Preparation</div>
+                                    <div class="grid grid-cols-1 gap-4">
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200 mb-2" data-element="others_earth_work" data-option="0">
+                                            <img src="Images/Others_Earth_work_etc/Hero.jpg" alt="Standard Prep" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Standard Prep</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$20-40/m²</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Clearing, grading, basic soil work</div>
+                                        </div>
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200" data-element="others_earth_work" data-option="1">
+                                            <img src="Images/Others_Earth_work_etc/Hero.jpg" alt="Premium Prep" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Premium Prep</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$40-60/m²</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Soil improvement, drainage, weed control</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Category 2: Features/Add-ons -->
+                        <div class="category-content hidden" id="category-features">
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <!-- Exposed Aggregate Concrete -->
+                                <div class="feature-group">
+                                    <div class="font-semibold text-lg mb-2">Exposed Aggregate Concrete</div>
+                                    <div class="grid grid-cols-1 gap-4">
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200 mb-2" data-element="exposed_aggregate_concrete" data-option="0">
+                                            <img src="Images/Exposed_aggregate_concrete/Hero.jpg" alt="Standard Exposed" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Standard Exposed</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$120-180/m²</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Durable, decorative, slip-resistant</div>
+                                        </div>
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200" data-element="exposed_aggregate_concrete" data-option="1">
+                                            <img src="Images/Exposed_aggregate_concrete/Hero.jpg" alt="Premium Exposed" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Premium Exposed</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$180-250/m²</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Custom color, finer finish, premium stone</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Plain Concrete -->
+                                <div class="feature-group">
+                                    <div class="font-semibold text-lg mb-2">Plain Concrete</div>
+                                    <div class="grid grid-cols-1 gap-4">
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200 mb-2" data-element="plain_concrete" data-option="0">
+                                            <img src="Images/Plain_concrete/Hero.jpg" alt="Standard Plain" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Standard Plain</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$90-120/m²</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Smooth, basic, cost-effective</div>
+                                        </div>
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200" data-element="plain_concrete" data-option="1">
+                                            <img src="Images/Plain_concrete/Hero.jpg" alt="Coloured Plain" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Coloured Plain</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$120-150/m²</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Pigmented, more decorative</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Outdoor Seating & Firepit -->
+                                <div class="feature-group">
+                                    <div class="font-semibold text-lg mb-2">Outdoor Seating & Firepit</div>
+                                    <div class="grid grid-cols-1 gap-4">
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200 mb-2" data-element="outdoor_seatings_firepit" data-option="0">
+                                            <img src="Images/Outdoor_seatings_firepit/Hero.jpg" alt="Standard Seating" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Standard Seating</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$2,000-4,000/set</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Simple bench or built-in seat</div>
+                                        </div>
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200" data-element="outdoor_seatings_firepit" data-option="1">
+                                            <img src="Images/Outdoor_seatings_firepit/Parkside (2 of 25).jpg" alt="Firepit Set" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Firepit Set</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$4,000-8,000/set</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Includes firepit and seating area</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Water Feature -->
+                                <div class="feature-group">
+                                    <div class="font-semibold text-lg mb-2">Water Feature</div>
+                                    <div class="grid grid-cols-1 gap-4">
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200 mb-2" data-element="water_feature" data-option="0">
+                                            <img src="Images/Water_feature/Hero.jpg" alt="Fountain" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Fountain</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$3,000-6,000</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Self-contained, easy install</div>
+                                        </div>
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200" data-element="water_feature" data-option="1">
+                                            <img src="Images/Water_feature/HERO.png" alt="Pond" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Pond</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$8,000-20,000</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Custom, naturalistic, wildlife friendly</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Retaining Wall -->
+                                <div class="feature-group">
+                                    <div class="font-semibold text-lg mb-2">Retaining Wall</div>
+                                    <div class="grid grid-cols-1 gap-4">
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200 mb-2" data-element="retaining_wall" data-option="0">
+                                            <img src="Images/Retaining_wall/Hero.jpg" alt="Timber Wall" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Timber Wall</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$150-250/m²</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Natural, rustic, cost-effective</div>
+                                        </div>
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200" data-element="retaining_wall" data-option="1">
+                                            <img src="Images/Retaining_wall/90e4059cd997a2f9bc17a5a7589ccecf.jpg" alt="Concrete Block Wall" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Concrete Block Wall</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$200-350/m²</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Durable, modern, various finishes</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Stairs -->
+                                <div class="feature-group">
+                                    <div class="font-semibold text-lg mb-2">Stairs</div>
+                                    <div class="grid grid-cols-1 gap-4">
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200 mb-2" data-element="stairs" data-option="0">
+                                            <img src="Images/Stairs/Hero.jpg" alt="Concrete Steps" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Concrete Steps</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$200-400/step</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Durable, modern, safe</div>
+                                        </div>
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200" data-element="stairs" data-option="1">
+                                            <img src="Images/Stairs/95e73e1826e7b2a7500767e89a33613b.jpg" alt="Timber Steps" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Timber Steps</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$150-300/step</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Natural, warm, rustic</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Decking -->
+                                <div class="feature-group">
+                                    <div class="font-semibold text-lg mb-2">Decking</div>
+                                    <div class="grid grid-cols-1 gap-4">
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200 mb-2" data-element="decking" data-option="0">
+                                            <img src="Images/Decking/Hero.jpg" alt="Treated Pine Decking" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Treated Pine Decking</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$180-250/m²</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Affordable, classic, easy to maintain</div>
+                                        </div>
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200" data-element="decking" data-option="1">
+                                            <img src="Images/Decking/77.jpg" alt="Hardwood Decking" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Hardwood Decking</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$300-450/m²</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Premium, durable, beautiful</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Pavement -->
+                                <div class="feature-group">
+                                    <div class="font-semibold text-lg mb-2">Pavement</div>
+                                    <div class="grid grid-cols-1 gap-4">
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200 mb-2" data-element="pavement" data-option="0">
+                                            <img src="Images/Pavement/Hero.jpg" alt="Concrete Pavers" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Concrete Pavers</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$80-120/m²</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Durable, cost-effective, versatile</div>
+                                        </div>
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200" data-element="pavement" data-option="1">
+                                            <img src="Images/Pavement/e4a6aa1ebbe33b2208ab0bb84c4a3617.jpg" alt="Stone Pavers" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Stone Pavers</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$150-250/m²</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Natural, premium, elegant</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Garden Edging -->
+                                <div class="feature-group">
+                                    <div class="font-semibold text-lg mb-2">Garden Edging</div>
+                                    <div class="grid grid-cols-1 gap-4">
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200 mb-2" data-element="garden_edging" data-option="0">
+                                            <img src="Images/Garden_edging/Hero.jpg" alt="Steel Edging" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Steel Edging</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$30-50/m</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Durable, clean lines, modern</div>
+                                        </div>
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200" data-element="garden_edging" data-option="1">
+                                            <img src="Images/Garden_edging/Hero.jpg" alt="Timber Edging" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Timber Edging</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$20-35/m</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Natural, affordable, flexible</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Category 3: Systems -->
+                        <div class="category-content hidden" id="category-systems">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Irrigation System -->
+                                <div class="feature-group">
+                                    <div class="font-semibold text-lg mb-2">Irrigation System</div>
+                                    <div class="grid grid-cols-1 gap-4">
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200 mb-2" data-element="irrigation_system" data-option="0">
+                                            <img src="Images/Irrigation_system/Hero.jpg" alt="Drip Irrigation" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Drip Irrigation</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$3,000-5,000</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Efficient, water-saving, for beds</div>
+                                        </div>
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200" data-element="irrigation_system" data-option="1">
+                                            <img src="Images/Irrigation_system/easy-diy-raised-bed-drip-irrigation-system-faucet-spigot-spacing-emitters-gph.jpg" alt="Pop-up Sprinklers" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Pop-up Sprinklers</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$4,000-8,000</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">For lawns, automatic, even coverage</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Lighting System -->
+                                <div class="feature-group">
+                                    <div class="font-semibold text-lg mb-2">Lighting System</div>
+                                    <div class="grid grid-cols-1 gap-4">
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200 mb-2" data-element="lighting" data-option="0">
+                                            <img src="Images/Lightings/Hero.jpg" alt="Path Lighting" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Path Lighting</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$2,000-5,000</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Safe, ambient, energy-efficient</div>
+                                        </div>
+                                        <div class="option-card bg-white rounded-lg shadow p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-all border-2 border-gray-200" data-element="lighting" data-option="1">
+                                            <img src="Images/Lightings/Parkside (17 of 25).jpg" alt="Feature Lighting" class="w-full aspect-square object-cover rounded mb-3">
+                                            <div class="font-semibold text-base mb-1">Feature Lighting</div>
+                                            <div class="text-gray-600 text-sm mb-1">A$5,000-10,000</div>
+                                            <div class="text-gray-600 text-xs mb-2 text-center">Highlight trees, water, art</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Real-time Total Estimate Bar -->
+                        <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 z-40">
+                            <div class="max-w-5xl mx-auto">
+                                <div class="flex justify-between items-center">
+                                    <div class="flex items-center space-x-4">
+                                        <div class="text-sm text-gray-600">Selected Options: <span id="selected-count">0</span></div>
+                                        <div class="text-sm text-gray-600">Total Estimate: <span class="font-bold text-[#4A6741] text-lg">A$<span id="step3-total">0</span></span></div>
+                                    </div>
+                                    <div class="flex space-x-2">
+                                        <button class="category-nav-btn px-3 py-1 text-sm rounded" data-category="basic">Basic</button>
+                                        <button class="category-nav-btn px-3 py-1 text-sm rounded" data-category="features">Features</button>
+                                        <button class="category-nav-btn px-3 py-1 text-sm rounded" data-category="systems">Systems</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8 flex justify-between">
+                            <button type="button" class="prev-step btn-secondary px-6 py-2 rounded-md">Back</button>
+                            <button type="button" class="next-step btn-primary px-6 py-2 rounded-md">Continue</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Breakdown Cost Estimate -->
+                    <div class="step-content hidden fade-in" id="step-4">
+                        <h3 class="text-2xl font-light mb-6">Step 4: Breakdown Cost Estimate</h3>
+                        <div class="mb-6 text-gray-600">Landscaping is a significant investment, and understanding potential costs upfront helps you make informed decisions. Below is a rough cost guide to assist with project planning.</div>
+                        
+                        <!-- Cost Breakdown Summary -->
+                        <div class="bg-gradient-to-r from-[#4A6741] to-[#5a7a51] text-white rounded-lg p-6 mb-8">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold">A$<span id="breakdown-total">0</span></div>
+                                    <div class="text-sm opacity-90">Total Estimate</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold"><span id="breakdown-elements">0</span></div>
+                                    <div class="text-sm opacity-90">Selected Elements</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold">A$<span id="breakdown-per-m2">0</span></div>
+                                    <div class="text-sm opacity-90">Per m²</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Selected Elements Breakdown -->
+                        <div class="mb-8">
+                            <h4 class="text-xl font-medium mb-4 text-[#4A6741]">Selected Elements Breakdown</h4>
+                            <div id="selected-elements-list" class="space-y-4">
+                                <!-- Elements will be populated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <!-- Base Cost Breakdown -->
+                        <div class="mb-8">
+                            <h4 class="text-xl font-medium mb-4 text-[#4A6741]">Base Cost Breakdown</h4>
+                            <div class="bg-white rounded-lg shadow p-6">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-gray-700">Site Area</span>
+                                            <span class="font-medium"><span id="breakdown-area">0</span> m²</span>
+                                        </div>
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-gray-700">Base Price</span>
+                                            <span class="font-medium">A$<span id="breakdown-base-price">200</span>/m²</span>
+                                        </div>
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-gray-700">Area Coefficient</span>
+                                            <span class="font-medium"><span id="breakdown-coefficient">1.0</span>x</span>
+                                        </div>
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-gray-700">Regional Multiplier</span>
+                                            <span class="font-medium"><span id="breakdown-regional">1.0</span>x</span>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-[#4A6741]">A$<span id="breakdown-base-cost">0</span></div>
+                                            <div class="text-sm text-gray-600">Base Cost</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Adjustments Breakdown -->
+                        <div class="mb-8">
+                            <h4 class="text-xl font-medium mb-4 text-[#4A6741]">Adjustments</h4>
+                            <div class="bg-white rounded-lg shadow p-6">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-gray-700">Slope Adjustment</span>
+                                            <span class="font-medium">A$<span id="breakdown-slope">0</span></span>
+                                        </div>
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-gray-700">Retaining Wall</span>
+                                            <span class="font-medium">A$<span id="breakdown-wall">0</span></span>
+                                        </div>
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-gray-700">Additional Elements</span>
+                                            <span class="font-medium">A$<span id="breakdown-elements-cost">0</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <div class="text-center">
+                                    <h4 class="font-semibold text-lg mb-2">The Magic of Water in Gardens</h4>
+                                    <p class="text-gray-700">Water features add movement, sound, and life to your garden. They create focal points, attract wildlife, and provide a sense of tranquility. From simple fountains to elaborate ponds, water features can transform any outdoor space.</p>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="font-semibold mb-2">Types of Water Features:</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                            <li>Fountains and spouts</li>
+                                            <li>Garden ponds</li>
+                                            <li>Streams and waterfalls</li>
+                                            <li>Water walls</li>
+                                            <li>Reflection pools</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-2">Benefits:</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                            <li>Creates soothing sounds</li>
+                                            <li>Attracts birds and wildlife</li>
+                                            <li>Adds visual interest</li>
+                                            <li>Improves air quality</li>
+                                            <li>Creates microclimate</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        `
+                    }
+                },
+                retaining_wall: {
+                    title: "Retaining Wall",
+                    description: "Structural walls to manage elevation changes and create level areas",
+                    options: [
+                        {
+                            name: "Timber Retaining Wall",
+                            price: "A$150-250",
+                            unit: "per m²",
+                            image: "Images/Retaining_wall/Hero.jpg",
+                            description: "Natural timber walls for rustic appeal"
+                        },
+                        {
+                            name: "Concrete Block Wall",
+                            price: "A$200-350",
+                            unit: "per m²",
+                            image: "Images/Retaining_wall/Hero.jpg",
+                            description: "Durable concrete blocks with various finishes"
+                        },
+                        {
+                            name: "Natural Stone Wall",
+                            price: "A$300-500",
+                            unit: "per m²",
+                            image: "Images/Retaining_wall/Hero.jpg",
+                            description: "Premium natural stone for luxury appearance"
+                        }
+                    ],
+                    learnMore: {
+                        title: "Retaining Walls",
+                        content: `
+                            <div class="space-y-6">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-lg mb-2">Functional and Beautiful</h4>
+                                    <p class="text-gray-700">Retaining walls serve both practical and aesthetic purposes. They prevent soil erosion, create usable level areas, and add architectural interest to your landscape. Modern retaining walls can be both functional and beautiful design elements.</p>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="font-semibold mb-2">Materials:</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                            <li>Timber (treated pine)</li>
+                                            <li>Concrete blocks</li>
+                                            <li>Natural stone</li>
+                                            <li>Brick and masonry</li>
+                                            <li>Gabion baskets</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-2">Applications:</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                            <li>Slope stabilization</li>
+                                            <li>Terrace creation</li>
+                                            <li>Garden bed definition</li>
+                                            <li>Driveway support</li>
+                                            <li>Pool surrounds</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        `
+                    }
+                },
+                stairs: {
+                    title: "Stairs",
+                    description: "Steps for safe and attractive transitions between different garden levels",
+                    options: [
+                        {
+                            name: "Concrete Steps",
+                            price: "A$200-400",
+                            unit: "per step",
+                            image: "Images/Stairs/Hero.jpg",
+                            description: "Durable concrete steps with various finishes"
+                        },
+                        {
+                            name: "Timber Steps",
+                            price: "A$150-300",
+                            unit: "per step",
+                            image: "Images/Stairs/Hero.jpg",
+                            description: "Natural timber steps for rustic charm"
+                        },
+                        {
+                            name: "Natural Stone Steps",
+                            price: "A$300-600",
+                            unit: "per step",
+                            image: "Images/Stairs/Hero.jpg",
+                            description: "Premium stone steps for luxury appeal"
+                        }
+                    ],
+                    learnMore: {
+                        title: "Garden Stairs",
+                        content: `
+                            <div class="space-y-6">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-lg mb-2">Connecting Garden Levels</h4>
+                                    <p class="text-gray-700">Garden stairs provide safe and attractive transitions between different levels in your landscape. They can be functional necessities or design features that enhance the overall aesthetic of your garden.</p>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="font-semibold mb-2">Design Considerations:</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                            <li>Step height and depth</li>
+                                            <li>Handrail requirements</li>
+                                            <li>Material selection</li>
+                                            <li>Drainage considerations</li>
+                                            <li>Lighting integration</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-2">Materials:</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                            <li>Concrete</li>
+                                            <li>Timber</li>
+                                            <li>Natural stone</li>
+                                            <li>Brick</li>
+                                            <li>Composite materials</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        `
+                    }
+                },
+                decking: {
+                    title: "Decking",
+                    description: "Timber or composite decks for outdoor living and entertaining spaces",
+                    options: [
+                        {
+                            name: "Treated Pine Decking",
+                            price: "A$180-250",
+                            unit: "per m²",
+                            image: "Images/Decking/Hero.jpg",
+                            description: "Affordable treated pine for budget-friendly decks"
+                        },
+                        {
+                            name: "Hardwood Decking",
+                            price: "A$300-450",
+                            unit: "per m²",
+                            image: "Images/Decking/Hero.jpg",
+                            description: "Premium hardwood for durability and beauty"
+                        },
+                        {
+                            name: "Composite Decking",
+                            price: "A$250-400",
+                            unit: "per m²",
+                            image: "Images/Decking/Hero.jpg",
+                            description: "Low-maintenance composite materials"
+                        }
+                    ],
+                    learnMore: {
+                        title: "Decking",
+                        content: `
+                            <div class="space-y-6">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-lg mb-2">Outdoor Living Spaces</h4>
+                                    <p class="text-gray-700">Decking creates versatile outdoor living spaces that extend your home into the garden. Whether for dining, entertaining, or relaxation, decks provide a comfortable and attractive platform for outdoor activities.</p>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="font-semibold mb-2">Materials:</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                            <li>Treated pine</li>
+                                            <li>Hardwood (Merbau, Spotted Gum)</li>
+                                            <li>Composite materials</li>
+                                            <li>Bamboo</li>
+                                            <li>Aluminum</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-2">Design Options:</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                            <li>Multi-level decks</li>
+                                            <li>Built-in seating</li>
+                                            <li>Integrated planters</li>
+                                            <li>Lighting systems</li>
+                                            <li>Privacy screens</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        `
+                    }
+                },
+                pavement: {
+                    title: "Pavement",
+                    description: "Paved surfaces for driveways, walkways, and patios",
+                    options: [
+                        {
+                            name: "Concrete Pavers",
+                            price: "A$80-150",
+                            unit: "per m²",
+                            image: "Images/Pavement/Hero.jpg",
+                            description: "Versatile concrete pavers in various styles"
+                        },
+                        {
+                            name: "Natural Stone Pavers",
+                            price: "A$150-300",
+                            unit: "per m²",
+                            image: "Images/Pavement/Hero.jpg",
+                            description: "Premium natural stone for luxury appeal"
+                        },
+                        {
+                            name: "Clay Brick Pavers",
+                            price: "A$120-200",
+                            unit: "per m²",
+                            image: "Images/Pavement/Hero.jpg",
+                            description: "Traditional clay bricks for classic look"
+                        }
+                    ],
+                    learnMore: {
+                        title: "Pavement",
+                        content: `
+                            <div class="space-y-6">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-lg mb-2">Creating Pathways and Surfaces</h4>
+                                    <p class="text-gray-700">Pavement provides durable, attractive surfaces for driveways, walkways, and patios. The right paving material can enhance your home's curb appeal while providing functional outdoor spaces.</p>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="font-semibold mb-2">Paving Materials:</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                            <li>Concrete pavers</li>
+                                            <li>Natural stone</li>
+                                            <li>Clay bricks</li>
+                                            <li>Granite</li>
+                                            <li>Travertine</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-2">Applications:</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                            <li>Driveways</li>
+                                            <li>Walkways</li>
+                                            <li>Patios</li>
+                                            <li>Pool surrounds</li>
+                                            <li>Garden paths</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        `
+                    }
+                },
+                garden_beds_plantings: {
+                    title: "Garden Beds & Plantings",
+                    description: "Flower beds and plantings to add color, texture, and biodiversity",
+                    options: [
+                        {
+                            name: "Basic Garden Bed",
+                            price: "A$40-80",
+                            unit: "per m²",
+                            image: "Images/Garden_beds_Plantings/Hero.jpg",
+                            description: "Simple garden bed with soil preparation and basic plants"
+                        },
+                        {
+                            name: "Premium Garden Bed",
+                            price: "A$80-150",
+                            unit: "per m²",
+                            image: "Images/Garden_beds_Plantings/Hero.jpg",
+                            description: "Enhanced garden bed with premium plants and features"
+                        },
+                        {
+                            name: "Luxury Garden Design",
+                            price: "A$150-300",
+                            unit: "per m²",
+                            image: "Images/Garden_beds_Plantings/Hero.jpg",
+                            description: "Complete garden design with mature plants and features"
+                        }
+                    ],
+                    learnMore: {
+                        title: "Garden Beds & Plantings",
+                        content: `
+                            <div class="space-y-6">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-lg mb-2">Bringing Life to Your Garden</h4>
+                                    <p class="text-gray-700">Garden beds and plantings are the heart of any landscape design. They add color, texture, fragrance, and life to your outdoor space while creating habitats for beneficial insects and wildlife.</p>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="font-semibold mb-2">Plant Types:</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                            <li>Annual flowers</li>
+                                            <li>Perennial plants</li>
+                                            <li>Shrubs and bushes</li>
+                                            <li>Ground covers</li>
+                                            <li>Native plants</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-2">Design Elements:</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                            <li>Color coordination</li>
+                                            <li>Seasonal interest</li>
+                                            <li>Texture variety</li>
+                                            <li>Height layering</li>
+                                            <li>Fragrant plants</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        `
+                    }
+                },
+                lawn_grass: {
+                    title: "Lawn & Grass",
+                    description: "Open grassy areas for recreation, play, and relaxation",
+                    options: [
+                        {
+                            name: "Basic Lawn Installation",
+                            price: "A$15-25",
+                            unit: "per m²",
+                            image: "Images/Lawn_grass/Hero.jpg",
+                            description: "Standard lawn with basic soil preparation"
+                        },
+                        {
+                            name: "Premium Lawn",
+                            price: "A$25-40",
+                            unit: "per m²",
+                            image: "Images/Lawn_grass/Hero.jpg",
+                            description: "Enhanced lawn with premium grass varieties"
+                        },
+                        {
+                            name: "Drought-Tolerant Lawn",
+                            price: "A$30-50",
+                            unit: "per m²",
+                            image: "Images/Lawn_grass/Hero.jpg",
+                            description: "Water-efficient grass varieties for sustainability"
+                        }
+                    ],
+                    learnMore: {
+                        title: "Lawn & Grass",
+                        content: `
+                            <div class="space-y-6">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-lg mb-2">The Foundation of Outdoor Living</h4>
+                                    <p class="text-gray-700">A well-maintained lawn provides a soft, green foundation for outdoor activities. It creates open spaces for recreation, improves air quality, and adds visual appeal to your landscape.</p>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="font-semibold mb-2">Grass Types:</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                            <li>Buffalo grass</li>
+                                            <li>Couch grass</li>
+                                            <li>Kikuyu grass</li>
+                                            <li>Zoysia grass</li>
+                                            <li>Drought-tolerant varieties</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-2">Benefits:</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                            <li>Recreation space</li>
+                                            <li>Air purification</li>
+                                            <li>Soil erosion control</li>
+                                            <li>Cooling effect</li>
+                                            <li>Visual appeal</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        `
+                    }
+                },
+                lighting: {
+                    title: "Lighting",
+                    description: "Outdoor lighting for safety, ambiance, and highlighting features",
+                    options: [
+                        {
+                            name: "Basic Security Lighting",
+                            price: "A$500-1,500",
+                            unit: "per setup",
+                            image: "Images/Lightings/Hero.jpg",
+                            description: "Essential lighting for safety and security"
+                        },
+                        {
+                            name: "Ambient Garden Lighting",
+                            price: "A$1,500-3,000",
+                            unit: "per setup",
+                            image: "Images/Lightings/Hero.jpg",
+                            description: "Atmospheric lighting for garden features"
+                        },
+                        {
+                            name: "Complete Lighting System",
+                            price: "A$3,000-8,000",
+                            unit: "per setup",
+                            image: "Images/Lightings/Hero.jpg",
+                            description: "Comprehensive lighting with smart controls"
+                        }
+                    ],
+                    learnMore: {
+                        title: "Garden Lighting",
+                        content: `
+                            <div class="space-y-6">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-lg mb-2">Illuminating Your Garden</h4>
+                                    <p class="text-gray-700">Garden lighting extends the usability of your outdoor space into the evening hours while creating magical atmospheres and highlighting key features of your landscape design.</p>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="font-semibold mb-2">Lighting Types:</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                            <li>Path lighting</li>
+                                            <li>Spot lighting</li>
+                                            <li>Flood lighting</li>
+                                            <li>Underwater lighting</li>
+                                            <li>String lighting</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-2">Applications:</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                            <li>Safety and security</li>
+                                            <li>Feature highlighting</li>
+                                            <li>Ambient atmosphere</li>
+                                            <li>Path illumination</li>
+                                            <li>Entertainment areas</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        `
+                    }
+                },
+                irrigation_system: {
+                    title: "Irrigation System",
+                    description: "Automated watering systems to keep your garden healthy and green",
+                    options: [
+                        {
+                            name: "Basic Drip System",
+                            price: "A$800-1,500",
+                            unit: "per setup",
+                            image: "Images/Irrigation_system/Hero.jpg",
+                            description: "Simple drip irrigation for garden beds"
+                        },
+                        {
+                            name: "Smart Irrigation System",
+                            price: "A$1,500-3,000",
+                            unit: "per setup",
+                            image: "Images/Irrigation_system/Hero.jpg",
+                            description: "Automated system with weather sensors"
+                        },
+                        {
+                            name: "Complete Water Management",
+                            price: "A$3,000-6,000",
+                            unit: "per setup",
+                            image: "Images/Irrigation_system/Hero.jpg",
+                            description: "Comprehensive system with smart controls"
+                        }
+                    ],
+                    learnMore: {
+                        title: "Irrigation Systems",
+                        content: `
+                            <div class="space-y-6">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-lg mb-2">Watering Made Easy</h4>
+                                    <p class="text-gray-700">Automated irrigation systems ensure your garden receives the right amount of water at the right time, promoting healthy plant growth while conserving water and saving you time.</p>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="font-semibold mb-2">System Types:</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                            <li>Drip irrigation</li>
+                                            <li>Spray irrigation</li>
+                                            <li>Underground systems</li>
+                                            <li>Smart controllers</li>
+                                            <li>Rain sensors</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-2">Benefits:</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                            <li>Water conservation</li>
+                                            <li>Healthy plants</li>
+                                            <li>Time saving</li>
+                                            <li>Consistent watering</li>
+                                            <li>Smart scheduling</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        `
+                    }
+                },
+                garden_edging: {
+                    title: "Garden Edging",
+                    description: "Edging to define garden beds and create clean lines",
+                    options: [
+                        {
+                            name: "Basic Plastic Edging",
+                            price: "A$15-25",
+                            unit: "per m",
+                            image: "Images/Garden_edging/Hero.jpg",
+                            description: "Affordable plastic edging for simple borders"
+                        },
+                        {
+                            name: "Timber Edging",
+                            price: "A$25-40",
+                            unit: "per m",
+                            image: "Images/Garden_edging/Hero.jpg",
+                            description: "Natural timber edging for rustic appeal"
+                        },
+                        {
+                            name: "Stone Edging",
+                            price: "A$40-80",
+                            unit: "per m",
+                            image: "Images/Garden_edging/Hero.jpg",
+                            description: "Premium stone edging for luxury finish"
+                        }
+                    ],
+                    learnMore: {
+                        title: "Garden Edging",
+                        content: `
+                            <div class="space-y-6">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-lg mb-2">Defining Your Garden Spaces</h4>
+                                    <p class="text-gray-700">Garden edging creates clean, defined borders between different areas of your landscape. It helps contain mulch, prevents grass from invading garden beds, and adds structure to your design.</p>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="font-semibold mb-2">Materials:</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                            <li>Plastic edging</li>
+                                            <li>Timber sleepers</li>
+                                            <li>Natural stone</li>
+                                            <li>Concrete edging</li>
+                                            <li>Metal edging</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-2">Applications:</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                            <li>Garden bed borders</li>
+                                            <li>Path edging</li>
+                                            <li>Mulch containment</li>
+                                            <li>Lawn separation</li>
+                                            <li>Design definition</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        `
+                    }
+                },
+                others_earth_work: {
+                    title: "Others & Earth Work",
+                    description: "Other site works, earth moving, or custom features",
+                    options: [
+                        {
+                            name: "Basic Site Preparation",
+                            price: "A$50-100",
+                            unit: "per m²",
+                            image: "Images/Others_Earth_work_etc/Hero.jpg",
+                            description: "Standard site clearing and preparation"
+                        },
+                        {
+                            name: "Advanced Earth Works",
+                            price: "A$100-200",
+                            unit: "per m²",
+                            image: "Images/Others_Earth_work_etc/Hero.jpg",
+                            description: "Complex grading and earth moving"
+                        },
+                        {
+                            name: "Custom Features",
+                            price: "Custom Quote",
+                            unit: "per project",
+                            image: "Images/Others_Earth_work_etc/Hero.jpg",
+                            description: "Specialized features and custom work"
+                        }
+                    ],
+                    learnMore: {
+                        title: "Site Works & Custom Features",
+                        content: `
+                            <div class="space-y-6">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-lg mb-2">Preparing Your Site</h4>
+                                    <p class="text-gray-700">Site preparation and earth works are the foundation of any successful landscape project. Proper grading, drainage, and soil preparation ensure your garden will thrive for years to come.</p>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="font-semibold mb-2">Site Works:</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                            <li>Site clearing</li>
+                                            <li>Grading and leveling</li>
+                                            <li>Drainage installation</li>
+                                            <li>Soil preparation</li>
+                                            <li>Excavation</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-2">Custom Features:</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                            <li>Specialized structures</li>
+                                            <li>Custom hardscaping</li>
+                                            <li>Unique water features</li>
+                                            <li>Specialty gardens</li>
+                                            <li>Art installations</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        `
+                    }
+                }
+                // Add more elements as needed...
+            };
+
+            // Initialize calculation state
+            let calculationState = {
+                area: 0,
+                baseCost: 0,
+                areaCoefficient: 1.0,
+                regionalMultiplier: 1.0,
+                slopeCoefficient: 1.0,
+                wallCost: 0,
+                totalCost: 0
+            };
+
+            // Function to show element options modal
+            function showElementOptions(elementKey) {
+                console.log('Show element options for:', elementKey);
+                // Simplified for now - just log the action
+            }
+
+            // Function to show learn more modal
+            function showLearnMore(elementKey) {
+                console.log('Show learn more for:', elementKey);
+                // Simplified for now - just log the action
+            }
+
+            // Add click handlers to garden element cards
+            document.querySelectorAll('.feature-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    // Prevent event bubbling if clicking on Learn More button
+                    if (e.target.classList.contains('learn-more-btn')) {
+                        e.stopPropagation();
+                        return;
+                    }
+                    
+                    // Toggle selection state
+                    this.classList.toggle('selected');
+                    if (this.classList.contains('selected')) {
+                        this.style.borderColor = '#4A6741';
+                        this.style.backgroundColor = '#f0f9ff';
+                    } else {
+                        this.style.borderColor = '#e5e7eb';
+                        this.style.backgroundColor = '#ffffff';
+                    }
+                    
+                    // Update calculations if needed
+                    updateCalculations();
+                });
+            });
+
+            // Simple notification function
+            function showNotification(message, type = 'info') {
+                const notification = document.createElement('div');
+                notification.className = `fixed top-4 right-4 p-4 rounded-lg shadow-lg z-50 ${
+                    type === 'success' ? 'bg-green-500 text-white' : 'bg-blue-500 text-white'
+                }`;
+                notification.textContent = message;
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.remove();
+                }, 3000);
+            }
+
+            // Range Slider Functionality
+            const irrigationSlider = document.getElementById('irrigation-slider');
+            const lightingSlider = document.getElementById('lighting-slider');
+            const irrigationPrice = document.getElementById('irrigation-price');
+            const lightingPrice = document.getElementById('lighting-price');
+
+            // Initialize system costs
+            let systemCosts = {
+                irrigation: 5500,
+                lighting: 6000
+            };
+
+            // Update irrigation slider
+            if (irrigationSlider) {
+                irrigationSlider.addEventListener('input', function() {
+                    const value = parseInt(this.value);
+                    systemCosts.irrigation = value;
+                    irrigationPrice.textContent = 'A$' + value.toLocaleString();
+                    updateSystemSliderTrack(this, value, 3000, 8000);
+                    updateCalculations();
+                });
+            }
+
+            // Update lighting slider
+            if (lightingSlider) {
+                lightingSlider.addEventListener('input', function() {
+                    const value = parseInt(this.value);
+                    systemCosts.lighting = value;
+                    lightingPrice.textContent = 'A$' + value.toLocaleString();
+                    updateSystemSliderTrack(this, value, 2000, 10000);
+                    updateCalculations();
+                });
+            }
+
+            // Update slider track appearance
+            function updateSystemSliderTrack(slider, value, min, max) {
+                const percentage = ((value - min) / (max - min)) * 100;
+                slider.style.background = `linear-gradient(to right, #4A6741 0%, #4A6741 ${percentage}%, #e5e7eb ${percentage}%, #e5e7eb 100%)`;
+            }
+
+            // Initialize slider tracks
+            if (irrigationSlider) {
+                updateSystemSliderTrack(irrigationSlider, 5500, 3000, 8000);
+            }
+            if (lightingSlider) {
+                updateSystemSliderTrack(lightingSlider, 6000, 2000, 10000);
+            }
+
+            // Enhanced updateCalculations function to include systems
+            function updateCalculations() {
+                const slopeAdjustment = calculationState.baseCost * (calculationState.slopeCoefficient - 1);
+                const systemsCost = systemCosts.irrigation + systemCosts.lighting;
+                calculationState.totalCost = calculationState.baseCost + slopeAdjustment + calculationState.wallCost + systemsCost;
+                
+                // Update summary
+                const summary = document.getElementById('calculation-summary');
+                const progressContainer = document.getElementById('price-progress-container');
+                
+                if (calculationState.area > 0) {
+                    document.getElementById('summary-base-cost').textContent = calculationState.baseCost.toLocaleString();
+                    document.getElementById('summary-slope-adjustment').textContent = slopeAdjustment.toLocaleString();
+                    document.getElementById('summary-wall-cost').textContent = calculationState.wallCost.toLocaleString();
+                    document.getElementById('summary-total').textContent = calculationState.totalCost.toLocaleString();
+                    summary.classList.remove('hidden');
+                    
+                    // Update progress bar
+                    updatePriceProgressBar();
+                } else {
+                    summary.classList.add('hidden');
+                    progressContainer.classList.add('hidden');
+                }
+                
+                checkFormCompletion();
+            }
+
+            // Enhanced updatePriceProgressBar function
+            function updatePriceProgressBar() {
+                const progressContainer = document.getElementById('price-progress-container');
+                const progressBar = document.getElementById('price-progress-bar');
+                const progressTotal = document.getElementById('progress-total');
+                const progressBaseCost = document.getElementById('progress-base-cost');
+                const progressAdjustments = document.getElementById('progress-adjustments');
+                const progressAdditional = document.getElementById('progress-additional');
+                
+                const total = calculationState.totalCost;
+                const baseCost = calculationState.baseCost;
+                const slopeAdjustment = calculationState.baseCost * (calculationState.slopeCoefficient - 1);
+                const additional = calculationState.wallCost + systemCosts.irrigation + systemCosts.lighting;
+                
+                // Calculate progress percentage (max $200K)
+                const maxValue = 200000;
+                const progressPercentage = Math.min((total / maxValue) * 100, 100);
+                
+                // Update progress bar
+                progressBar.style.width = progressPercentage + '%';
+                
+                // Update values
+                progressTotal.textContent = total.toLocaleString();
+                progressBaseCost.textContent = baseCost.toLocaleString();
+                progressAdjustments.textContent = slopeAdjustment.toLocaleString();
+                progressAdditional.textContent = additional.toLocaleString();
+                
+                // Show progress container
+                progressContainer.classList.remove('hidden');
+                
+                // Add animation class for smooth transition
+                progressBar.classList.add('animate-pulse');
+                setTimeout(() => {
+                    progressBar.classList.remove('animate-pulse');
+                }, 500);
+            }
+
+            // Function to show learn more for systems
+            function showLearnMore(type) {
+                let title, content;
+                
+                if (type === 'irrigation') {
+                    title = 'Irrigation System';
+                    content = `
+                        <div class="space-y-6">
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-2">Smart Irrigation Solutions</h4>
+                                <p class="text-gray-700">Modern irrigation systems are essential for maintaining a healthy, beautiful garden while conserving water and saving time. Our systems are designed to work with nature, not against it.</p>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-semibold mb-2">System Components:</h4>
+                                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                        <li>Smart controller with weather integration</li>
+                                        <li>Rotating sprinklers for lawn areas</li>
+                                        <li>Drip irrigation for garden beds</li>
+                                        <li>Rain sensor to prevent overwatering</li>
+                                        <li>Mobile app control</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-2">Benefits:</h4>
+                                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                        <li>Water conservation (up to 50% savings)</li>
+                                        <li>Healthier plants and lawn</li>
+                                        <li>Time-saving automation</li>
+                                        <li>Smart weather adaptation</li>
+                                        <li>Increased property value</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">Environmental Impact:</h4>
+                                <p class="text-gray-700">Our irrigation systems are designed with sustainability in mind. They use water efficiently, reduce runoff, and help create a more resilient garden ecosystem.</p>
+                            </div>
+                        </div>
+                    `;
+                } else if (type === 'lighting') {
+                    title = 'Lighting System';
+                    content = `
+                        <div class="space-y-6">
+                            <div class="bg-purple-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-2">Outdoor Lighting Excellence</h4>
+                                <p class="text-gray-700">Professional outdoor lighting transforms your garden into a magical space that can be enjoyed day and night. Our systems combine beauty, safety, and functionality.</p>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-semibold mb-2">Lighting Types:</h4>
+                                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                        <li>Path lighting for safety</li>
+                                        <li>Accent lighting for features</li>
+                                        <li>Security lighting for protection</li>
+                                        <li>Ambient lighting for atmosphere</li>
+                                        <li>LED technology for efficiency</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-2">Features:</h4>
+                                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                        <li>Smart control system</li>
+                                        <li>Motion sensors</li>
+                                        <li>Dusk-to-dawn operation</li>
+                                        <li>Mobile app integration</li>
+                                        <li>Energy-efficient LED</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-yellow-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">Design Benefits:</h4>
+                                <p class="text-gray-700">Professional lighting extends your living space outdoors, creates focal points, enhances security, and adds significant value to your property. It's an investment that pays dividends in enjoyment and safety.</p>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    // Handle other elements
+                    const elementData = gardenElementData[type];
+                    if (elementData && elementData.learnMore) {
+                        title = elementData.learnMore.title;
+                        content = elementData.learnMore.content;
+                    } else {
+                        return;
+                    }
+                }
+
+                // Update modal title and content
+                document.getElementById('learn-more-title').textContent = title;
+                document.getElementById('learn-more-content').innerHTML = content;
+
+                // Show modal
+                learnMoreModal.classList.remove('hidden');
+            }
+
+            // Add click handlers to Learn More buttons to prevent event bubbling
+            document.querySelectorAll('.learn-more-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const elementKey = this.closest('.feature-card').dataset.element;
+                    showLearnMore(elementKey);
+                });
+            });
+
+            // Add Step 5 and Step 6 content
+            const step5Content = `
+                <!-- Step 5: EOI Submission -->
+                <div class="step-content hidden fade-in" id="step-5">
+                    <h3 class="text-2xl font-light mb-6">Step 5: EOI Submission</h3>
+                    <div class="mb-8">
+                        <h4 class="text-3xl font-light text-center mb-8 text-[#4A6741]">Start Your Dream Garden Journey with Ease</h4>
+                        
+                        <div class="space-y-8">
+                            <!-- 1. Service Package Overview -->
+                            <div class="bg-white rounded-lg shadow p-6">
+                                <h5 class="text-xl font-medium mb-4 text-[#4A6741]">1. Service Package Overview</h5>
+                                <p class="text-gray-700 mb-4">We offer a one-stop landscape design and construction service in two main phases:</p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="bg-blue-50 p-4 rounded-lg">
+                                        <h6 class="font-semibold text-lg mb-2">Design Phase</h6>
+                                        <p class="text-gray-700">Site assessment, conceptual development, and customized detailed drawings tailored to your vision.</p>
+                                    </div>
+                                    <div class="bg-green-50 p-4 rounded-lg">
+                                        <h6 class="font-semibold text-lg mb-2">Construction Phase</h6>
+                                        <p class="text-gray-700">Upon your approval, we'll handle site preparation, hardscape/softscape installation, and full project management.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2. Initial Confirmation Steps -->
+                            <div class="bg-white rounded-lg shadow p-6">
+                                <h5 class="text-xl font-medium mb-4 text-[#4A6741]">2. Initial Confirmation Steps</h5>
+                                <div class="bg-yellow-50 p-4 rounded-lg mb-4">
+                                    <h6 class="font-semibold text-lg mb-2">Design Service Deposit</h6>
+                                    <p class="text-gray-700 mb-3">A non-refundable deposit of <strong>A$4,500+GST</strong> (covering design services) is due upon signing. This amount will be:</p>
+                                    <ul class="space-y-2">
+                                        <li class="flex items-start">
+                                            <span class="text-green-600 mr-2">✅</span>
+                                            <span class="text-gray-700">Credited toward total construction costs if you proceed with building;</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-green-600 mr-2">✅</span>
+                                            <span class="text-gray-700">Retained as full payment for design services if construction is not pursued.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- 3. Design Process -->
+                            <div class="bg-white rounded-lg shadow p-6">
+                                <h5 class="text-xl font-medium mb-4 text-[#4A6741]">3. Design Process (Starts after signing & deposit)</h5>
+                                <div class="space-y-4">
+                                    <div class="border-l-4 border-[#4A6741] pl-4">
+                                        <h6 class="font-semibold text-lg">Stage 1: Site Assessment & Concept Design</h6>
+                                        <p class="text-gray-700">Our designers will conduct a site assessment and draft initial concepts based on your needs.</p>
+                                    </div>
+                                    <div class="border-l-4 border-[#4A6741] pl-4">
+                                        <h6 class="font-semibold text-lg">Stage 2: 3D Visualization</h6>
+                                        <p class="text-gray-700">After concept approval, we'll provide immersive 3D renderings to visualize your landscape.</p>
+                                    </div>
+                                    <div class="border-l-4 border-[#4A6741] pl-4">
+                                        <h6 class="font-semibold text-lg">Stage 3: Detailed Construction Drawings</h6>
+                                        <p class="text-gray-700">Final plans with measurements, material specs, and cost estimates for construction quoting.</p>
+                                    </div>
+                                </div>
+                                <div class="mt-4 bg-blue-50 p-4 rounded-lg">
+                                    <p class="text-gray-700"><strong>Construction Quote:</strong> Provided once design drawings are approved, outlining detailed project costs.</p>
+                                </div>
+                            </div>
+
+                            <!-- 4. Construction Activation Options -->
+                            <div class="bg-white rounded-lg shadow p-6">
+                                <h5 class="text-xl font-medium mb-4 text-[#4A6741]">4. Construction Activation Options</h5>
+                                <p class="text-gray-700 mb-4">Your choice drives the next steps:</p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="bg-green-50 p-4 rounded-lg">
+                                        <h6 class="font-semibold text-lg mb-2">Proceed with Construction</h6>
+                                        <p class="text-gray-700">We'll sign a separate construction contract and start work immediately.</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h6 class="font-semibold text-lg mb-2">Pause Construction</h6>
+                                        <p class="text-gray-700">We'll deliver final design files, and the design service will conclude.</p>
+                                    </div>
+                                </div>
+                                <div class="mt-4 bg-red-50 p-4 rounded-lg">
+                                    <p class="text-gray-700"><strong>Note:</strong> All design materials remain copyrighted by Moon Design Group for project use only.</p>
+                                </div>
+                            </div>
+
+                            <!-- 5. Flexible Adjustment Policy -->
+                            <div class="bg-white rounded-lg shadow p-6">
+                                <h5 class="text-xl font-medium mb-4 text-[#4A6741]">5. Flexible Adjustment Policy</h5>
+                                <p class="text-gray-700 mb-4">For changes to services:</p>
+                                <ul class="space-y-2 mb-4">
+                                    <li class="flex items-start">
+                                        <span class="text-blue-600 mr-2">•</span>
+                                        <span class="text-gray-700">Any adjustments require mutual written confirmation to avoid surprises.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-blue-600 mr-2">•</span>
+                                        <span class="text-gray-700">In case of service suspension: Deposit terms from Clause 2 still apply.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-center">
+                        <button type="button" class="prev-step btn-secondary px-6 py-2 rounded-md">Back</button>
+                        <button type="button" class="next-step btn-primary px-6 py-2 rounded-md">Proceed</button>
+                    </div>
+                </div>
+
+                <!-- Step 6: Contact Information -->
+                <div class="step-content hidden fade-in" id="step-6">
+                    <h3 class="text-2xl font-light mb-6">Step 6: Contact Information</h3>
+                    <div class="mb-4">Please provide your contact details so we can send you a detailed quote and design proposal.</div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 mb-2 font-medium">First Name *</label>
+                            <input type="text" name="first_name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4A6741]">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2 font-medium">Last Name *</label>
+                            <input type="text" name="last_name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4A6741]">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2 font-medium">Email *</label>
+                            <input type="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4A6741]">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2 font-medium">Phone</label>
+                            <input type="tel" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4A6741]">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-gray-700 mb-2 font-medium">Additional Notes</label>
+                            <textarea name="notes" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4A6741]" placeholder="Any specific requirements or preferences..."></textarea>
+                        </div>
+                    </div>
+                    <div class="mt-8 flex justify-between">
+                        <button type="button" class="prev-step btn-secondary px-6 py-2 rounded-md">Back</button>
+                        <button type="submit" class="btn-primary px-8 py-3 rounded-md">Get My Quote</button>
+                    </div>
+                </div>
+            `;
+
+            // Insert the new steps into the form
+            const form = document.querySelector('#design-portal-form');
+            if (form) {
+                form.insertAdjacentHTML('beforeend', step5Content);
+            }
+
+            // Step 3 Category Navigation
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('category-nav-btn')) {
+                    const category = e.target.dataset.category;
+                    
+                    // Update active button
+                    document.querySelectorAll('.category-nav-btn').forEach(btn => {
+                        btn.classList.remove('bg-[#4A6741]', 'text-white');
+                        btn.classList.add('bg-gray-200', 'text-gray-700');
+                        btn.dataset.active = 'false';
+                    });
+                    e.target.classList.remove('bg-gray-200', 'text-gray-700');
+                    e.target.classList.add('bg-[#4A6741]', 'text-white');
+                    e.target.dataset.active = 'true';
+                    
+                    // Show selected category content
+                    document.querySelectorAll('.category-content').forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    document.getElementById(`category-${category}`).classList.remove('hidden');
+                }
+            });
+
+            // Breakdown Cost Estimate Functions
+            function updateBreakdownCosts() {
+                const selectedElements = document.querySelectorAll('.feature-card.selected');
+                const selectedCount = selectedElements.length;
+                const totalCost = calculationState.totalCost;
+                const area = calculationState.area;
+                const perM2 = area > 0 ? (totalCost / area).toFixed(0) : 0;
+                
+                // Update breakdown summary
+                document.getElementById('breakdown-total').textContent = totalCost.toLocaleString();
+                document.getElementById('breakdown-elements').textContent = selectedCount;
+                document.getElementById('breakdown-per-m2').textContent = perM2;
+                
+                // Update base cost breakdown
+                document.getElementById('breakdown-area').textContent = area;
+                document.getElementById('breakdown-base-price').textContent = '200';
+                document.getElementById('breakdown-coefficient').textContent = calculationState.areaCoefficient.toFixed(1);
+                document.getElementById('breakdown-regional').textContent = calculationState.regionalMultiplier.toFixed(1);
+                document.getElementById('breakdown-base-cost').textContent = calculationState.baseCost.toLocaleString();
+                
+                // Update adjustments breakdown
+                const slopeAdjustment = calculationState.baseCost * (calculationState.slopeCoefficient - 1);
+                document.getElementById('breakdown-slope').textContent = slopeAdjustment.toLocaleString();
+                document.getElementById('breakdown-wall').textContent = calculationState.wallCost.toLocaleString();
+                document.getElementById('breakdown-elements-cost').textContent = (totalCost - calculationState.baseCost - slopeAdjustment - calculationState.wallCost).toLocaleString();
+                document.getElementById('breakdown-adjustments-total').textContent = (slopeAdjustment + calculationState.wallCost).toLocaleString();
+                
+                // Update selected elements list
+                updateSelectedElementsList();
+            }
+
+            function updateSelectedElementsList() {
+                const selectedElements = document.querySelectorAll('.feature-card.selected');
+                const listContainer = document.getElementById('selected-elements-list');
+                
+                if (selectedElements.length === 0) {
+                    listContainer.innerHTML = '<div class="text-gray-500 text-center py-8">No elements selected yet</div>';
+                    return;
+                }
+                
+                let listHTML = '';
+                selectedElements.forEach(element => {
+                    const elementKey = element.dataset.element;
+                    const elementData = gardenElementData[elementKey];
+                    if (elementData) {
+                        listHTML += `
+                            <div class="bg-white rounded-lg shadow p-4 flex items-center">
+                                <img src="${elementData.options[0].image}" alt="${elementData.title}" class="w-16 h-16 object-cover rounded mr-4">
+                                <div class="flex-1">
+                                    <h5 class="font-semibold">${elementData.title}</h5>
+                                    <p class="text-sm text-gray-600">${elementData.description}</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-semibold text-[#4A6741]">${elementData.options[0].price}</div>
+                                    <div class="text-xs text-gray-500">${elementData.options[0].unit}</div>
+                                </div>
+                            </div>
+                        `;
+                    }
+                });
+                
+                listContainer.innerHTML = listHTML;
+            }
+
+            // Email and PDF functions
+            function sendToEmail() {
+                const email = prompt('Please enter your email address:');
+                if (email) {
+                    alert(`Cost breakdown has been sent to ${email}`);
+                }
+            }
+
+            function downloadPDF() {
+                alert('PDF download started...');
+                // Here you would implement actual PDF generation
+            }
+
+            // Update Step 3 total bar
+            function updateStep3Total() {
+                const selectedElements = document.querySelectorAll('.feature-card.selected');
+                const selectedCount = selectedElements.length;
+                const totalCost = calculationState.totalCost;
+                
+                document.getElementById('selected-count').textContent = selectedCount;
+                document.getElementById('step3-total').textContent = totalCost.toLocaleString();
+            }
+
+            // Enhanced feature card click handler for Step 3
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.feature-card')) {
+                    const card = e.target.closest('.feature-card');
+                    if (e.target.classList.contains('learn-more-btn')) {
+                        e.stopPropagation();
+                        const elementKey = card.dataset.element;
+                        showLearnMore(elementKey);
+                        return;
+                    }
+                    
+                    // Toggle selection
+                    card.classList.toggle('selected');
+                    if (card.classList.contains('selected')) {
+                        card.style.borderColor = '#4A6741';
+                        card.style.backgroundColor = '#f0f9ff';
+                    } else {
+                        card.style.borderColor = '#e5e7eb';
+                        card.style.backgroundColor = '#ffffff';
+                    }
+                    
+                    updateStep3Total();
+                }
+            });
+
+            // Step Navigation System
+            let currentStep = 1;
+            const totalSteps = 6;
+
+            // Function to check form completion for each step
+            function checkFormCompletion() {
+                const nextButton = document.querySelector(`#step-${currentStep} .next-step`);
+                console.log('Checking form completion for step:', currentStep);
+                console.log('Next button found:', nextButton);
+                if (!nextButton) return;
+
+                let isComplete = false;
+
+                switch (currentStep) {
+                    case 1:
+                        // Check if area is entered, terrain is selected, and garden style is selected
+                        const area = document.getElementById('site-area').value;
+                        const terrain = document.querySelector('input[name="site_terrain"]:checked');
+                        const gardenStyle = document.querySelector('input[name="garden_style"]:checked');
+                        
+                        console.log('Step 1 validation - Area:', area, 'Terrain:', terrain, 'Garden Style:', gardenStyle);
+                        
+                        if (area && parseFloat(area) > 0 && terrain && gardenStyle) {
+                            isComplete = true;
+                            console.log('Step 1 complete:', isComplete);
+                        }
+                        break;
+                    
+                    case 2:
+                        // Check if at least one basic element is selected
+                        const basicElements = document.querySelectorAll('#step-2 .basic-option input:checked');
+                        isComplete = basicElements.length > 0;
+                        console.log('Step 2 validation - Basic elements selected:', basicElements.length, 'Complete:', isComplete);
+                        break;
+                    
+                    case 3:
+                        // Check if at least one garden element is selected
+                        const selectedElements = document.querySelectorAll('.feature-card.selected');
+                        isComplete = selectedElements.length > 0;
+                        console.log('Step 3 validation - Selected elements:', selectedElements.length, 'Complete:', isComplete);
+                        break;
+                    
+                    case 4:
+                        // Step 4 is always complete (breakdown view)
+                        isComplete = true;
+                        break;
+                    
+                    case 5:
+                        // Step 5 is always complete (EOI submission)
+                        isComplete = true;
+                        break;
+                    
+                    case 6:
+                        // Check if required contact fields are filled
+                        const firstName = document.querySelector('input[name="first_name"]').value;
+                        const lastName = document.querySelector('input[name="last_name"]').value;
+                        const email = document.querySelector('input[name="email"]').value;
+                        isComplete = firstName && lastName && email;
+                        console.log('Step 6 validation - Contact fields:', {firstName, lastName, email}, 'Complete:', isComplete);
+                        break;
+                }
+
+                console.log('Form completion result:', isComplete);
+
+                // Enable/disable next button
+                if (isComplete) {
+                    nextButton.disabled = false;
+                    nextButton.classList.remove('opacity-50', 'cursor-not-allowed');
+                    nextButton.classList.add('hover:bg-[#3d5a35]');
+                    console.log('Next button enabled');
+                } else {
+                    nextButton.disabled = true;
+                    nextButton.classList.add('opacity-50', 'cursor-not-allowed');
+                    nextButton.classList.remove('hover:bg-[#3d5a35]');
+                    console.log('Next button disabled');
+                }
+            }
+
+            // Function to navigate to next step
+            function nextStep() {
+                if (currentStep < totalSteps) {
+                    // Hide current step
+                    document.getElementById(`step-${currentStep}`).classList.add('hidden');
+                    document.getElementById(`step-${currentStep}`).classList.remove('active');
+                    
+                    // Show next step
+                    currentStep++;
+                    document.getElementById(`step-${currentStep}`).classList.remove('hidden');
+                    document.getElementById(`step-${currentStep}`).classList.add('active');
+                    
+                    // Update step indicators
+                    updateStepIndicators();
+                    
+                    // Check form completion for new step
+                    checkFormCompletion();
+                    
+                    // Apply area coefficient after step 2
+                    if (currentStep === 3) {
+                        applyAreaCoefficient();
+                    }
+                }
+            }
+
+            // Function to navigate to previous step
+            function prevStep() {
+                if (currentStep > 1) {
+                    // Hide current step
+                    document.getElementById(`step-${currentStep}`).classList.add('hidden');
+                    document.getElementById(`step-${currentStep}`).classList.remove('active');
+                    
+                    // Show previous step
+                    currentStep--;
+                    document.getElementById(`step-${currentStep}`).classList.remove('hidden');
+                    document.getElementById(`step-${currentStep}`).classList.add('active');
+                    
+                    // Update step indicators
+                    updateStepIndicators();
+                    
+                    // Check form completion for new step
+                    checkFormCompletion();
+                }
+            }
+
+            // Function to update step indicators
+            function updateStepIndicators() {
+                const indicators = document.querySelectorAll('.step-indicator');
+                indicators.forEach((indicator, index) => {
+                    if (index + 1 < currentStep) {
+                        // Completed steps
+                        indicator.classList.remove('bg-gray-200', 'text-gray-600');
+                        indicator.classList.add('bg-green-500', 'text-white');
+                    } else if (index + 1 === currentStep) {
+                        // Current step
+                        indicator.classList.remove('bg-gray-200', 'text-gray-600', 'bg-green-500', 'text-white');
+                        indicator.classList.add('bg-[#4A6741]', 'text-white');
+                    } else {
+                        // Future steps
+                        indicator.classList.remove('bg-[#4A6741]', 'text-white', 'bg-green-500', 'text-white');
+                        indicator.classList.add('bg-gray-200', 'text-gray-600');
+                    }
+                });
+            }
+
+            // Function to apply area coefficient after step 2
+            function applyAreaCoefficient() {
+                if (calculationState.areaCoefficient > 1) {
+                    calculationState.totalCost = calculationState.totalCost * calculationState.areaCoefficient;
+                    updateCalculations();
+                    
+                    // Show notification
+                    showNotification(`Area coefficient (${calculationState.areaCoefficient}x) applied to total cost`, 'info');
+                }
+            }
+
+            // Add event listeners for step navigation
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('next-step')) {
+                    e.preventDefault();
+                    console.log('Next step button clicked');
+                    nextStep();
+                } else if (e.target.classList.contains('prev-step')) {
+                    e.preventDefault();
+                    console.log('Prev step button clicked');
+                    prevStep();
+                }
+            });
+
+            // Add event listeners for form validation
+            document.addEventListener('input', function(e) {
+                if (e.target.matches('input, select')) {
+                    checkFormCompletion();
+                }
+            });
+
+            document.addEventListener('change', function(e) {
+                if (e.target.matches('input[type="radio"], input[type="checkbox"]')) {
+                    checkFormCompletion();
+                }
+            });
+
+            // Initialize form validation on page load
+            document.addEventListener('DOMContentLoaded', function() {
+                console.log('DOM loaded, initializing step navigation');
+                checkFormCompletion();
+                updateStepIndicators();
+                
+                // Add direct event listeners to buttons as backup
+                document.querySelectorAll('.next-step').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        console.log('Direct next step button clicked');
+                        nextStep();
+                    });
+                });
+                
+                document.querySelectorAll('.prev-step').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        console.log('Direct prev step button clicked');
+                        prevStep();
+                    });
+                });
+
+                // Add event listeners for shape options
+                document.querySelectorAll('.shape-option').forEach(option => {
+                    option.addEventListener('click', function() {
+                        // Remove active state from all shape options
+                        document.querySelectorAll('.shape-option').forEach(opt => {
+                            opt.querySelector('div').classList.remove('border-[#4A6741]', 'bg-blue-50');
+                            opt.querySelector('div').classList.add('border-gray-200');
+                        });
+                        
+                        // Add active state to clicked option
+                        this.querySelector('div').classList.remove('border-gray-200');
+                        this.querySelector('div').classList.add('border-[#4A6741]', 'bg-blue-50');
+                        
+                        // Select the radio button
+                        const radio = this.querySelector('input[type="radio"]');
+                        radio.checked = true;
+                        
+                        console.log('Shape selected:', radio.value);
+                        checkFormCompletion();
+                    });
+                });
+
+                // Add event listeners for terrain options
+                document.querySelectorAll('.terrain-option').forEach(option => {
+                    option.addEventListener('click', function() {
+                        // Remove active state from all terrain options
+                        document.querySelectorAll('.terrain-option').forEach(opt => {
+                            opt.querySelector('div').classList.remove('border-[#4A6741]', 'bg-blue-50');
+                            opt.querySelector('div').classList.add('border-gray-200');
+                        });
+                        
+                        // Add active state to clicked option
+                        this.querySelector('div').classList.remove('border-gray-200');
+                        this.querySelector('div').classList.add('border-[#4A6741]', 'bg-blue-50');
+                        
+                        // Select the radio button
+                        const radio = this.querySelector('input[type="radio"]');
+                        radio.checked = true;
+                        
+                        console.log('Terrain selected:', radio.value);
+                        
+                        // Show/hide slope details if slope is selected
+                        const slopeDetails = document.getElementById('slope-details');
+                        if (radio.value === 'slope') {
+                            slopeDetails.classList.remove('hidden');
+                        } else {
+                            slopeDetails.classList.add('hidden');
+                        }
+                        
+                        checkFormCompletion();
+                    });
+                });
+
+                // Add event listener for slope range selection
+                const slopeRange = document.getElementById('slope-range');
+                if (slopeRange) {
+                    slopeRange.addEventListener('change', function() {
+                        console.log('Slope range selected:', this.value);
+                        checkFormCompletion();
+                    });
+                }
+            });
+        });
+    </script>
+
+    <!-- Element Options Modal -->
+    <div id="element-options-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-6 max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="modal-title" class="text-xl font-semibold text-[#4A6741]">Element Options</h3>
+                <button id="close-element-modal" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+            <div id="element-options-content" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Options will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Learn More Modal -->
+    <div id="learn-more-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-6 max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="learn-more-title" class="text-xl font-semibold text-[#4A6741]">Learn More</h3>
+                <button id="close-learn-more-modal" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+            <div id="learn-more-content" class="text-gray-700">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // Step 1 JS
+    (function() {
+        const basePricePerM2 = 150;
+        const areaCoefficient = 1.8; // Can be adjusted based on area range
+        const styleCoefficients = {
+            australian: 1.2,
+            formal: 1.8,
+            zen: 1.2,
+            mediterranean: 1.5,
+            naturalistic: 1.0,
+            tropical: 1.5
+        };
+        let selectedStyle = null;
+        let selectedStyleCoefficient = 1;
+
+        function updateBasicPrice() {
+            const area = parseFloat(document.getElementById('site-area').value);
+            if (isNaN(area) || area <= 0) {
+                document.getElementById('basic-price').textContent = '0';
+                document.getElementById('total-price').textContent = '0';
+                checkStep1Completion();
+                return;
+            }
+            const basicPrice = area * basePricePerM2 * areaCoefficient;
+            document.getElementById('basic-price').textContent = Math.round(basicPrice).toLocaleString();
+            const totalPrice = basicPrice * selectedStyleCoefficient;
+            document.getElementById('total-price').textContent = Math.round(totalPrice).toLocaleString();
+            checkStep1Completion();
+        }
+
+        function checkStep1Completion() {
+            const area = parseFloat(document.getElementById('site-area').value);
+            const btn = document.querySelector('#step-1 .next-step');
+            if (area > 0 && selectedStyle) {
+                btn.disabled = false;
+                btn.classList.remove('opacity-50', 'cursor-not-allowed');
+            } else {
+                btn.disabled = true;
+                btn.classList.add('opacity-50', 'cursor-not-allowed');
+            }
+        }
+
+        document.getElementById('site-area').addEventListener('input', updateBasicPrice);
+
+        document.querySelectorAll('.style-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.style-option').forEach(opt => {
+                    opt.classList.remove('border-[#4A6741]', 'bg-green-50');
+                    opt.classList.add('border-gray-200');
+                });
+                this.classList.add('border-[#4A6741]', 'bg-green-50');
+                this.classList.remove('border-gray-200');
+                selectedStyle = this.dataset.style;
+                selectedStyleCoefficient = styleCoefficients[selectedStyle];
+                updateBasicPrice();
+            });
+        });
+    })();
+    </script>
+
+    <script>
+    // Step 2 JavaScript
+    (function() {
+        // Basic elements logic
+        function calcBasicFactor() {
+            const grass = document.getElementById('basic-grass').checked;
+            const garden = document.getElementById('basic-garden').checked;
+            const hard = document.getElementById('basic-hard').checked;
+            if (!hard && grass && garden) return 0.6;
+            if (hard && !grass && !garden) return 2;
+            if (!grass || !garden) return 1.6;
+            return 1;
+        }
+        function updateBasicFactor() {
+            const factor = calcBasicFactor();
+            document.getElementById('basic-factor').textContent = factor;
+            updateStep2Total();
+        }
+        document.querySelectorAll('#step-2 .basic-option input').forEach(input => {
+            input.addEventListener('change', updateBasicFactor);
+        });
+
+        // Add-on elements logic
+        const addonConfigs = {
+            firepit: { range: [2000, 15000], defaultFactor: 0.1 },
+            kitchen: { range: [6000, 25000], defaultFactor: 0.15 },
+            dining: { range: [3000, 20000], defaultFactor: 0.12 },
+            veggie: { range: [1000, 8000], defaultFactor: 0.08 },
+            raisedbed: { range: [1500, 10000], defaultFactor: 0.06 }
+        };
+        let selectedAddons = {};
+        document.querySelectorAll('.addon-card').forEach(card => {
+            card.querySelector('.select-addon').onclick = function(e) {
+                e.stopPropagation();
+                card.classList.toggle('selected');
+                const addon = card.dataset.addon;
+                if (card.classList.contains('selected')) {
+                    selectedAddons[addon] = true;
+                    card.querySelector('.addon-options').classList.remove('hidden');
+                } else {
+                    delete selectedAddons[addon];
+                    card.querySelector('.addon-options').classList.add('hidden');
+                }
+                updateAddonPrice(card);
+                updateStep2Total();
+            };
+            card.querySelector('.addon-size').oninput = function() {
+                updateAddonPrice(card);
+                updateStep2Total();
+            };
+        });
+        function updateAddonPrice(card) {
+            const addon = card.dataset.addon;
+            const size = parseFloat(card.querySelector('.addon-size').value);
+            const { range } = addonConfigs[addon];
+            let priceMin, priceMax;
+            if (size > 0) {
+                priceMin = size * (range[0] / 10);
+                priceMax = size * (range[1] / 10);
+            } else {
+                const siteArea = parseFloat(document.getElementById('site-area').value) || 0;
+                priceMin = siteArea * addonConfigs[addon].defaultFactor * range[0] / 10;
+                priceMax = siteArea * addonConfigs[addon].defaultFactor * range[1] / 10;
+            }
+            card.querySelector('.addon-price-range').textContent = `${Math.round(priceMin)} - ${Math.round(priceMax)}`;
+            card.dataset.priceMin = priceMin;
+            card.dataset.priceMax = priceMax;
+        }
+        function updateStep2Total() {
+            // Assume step1 total price exists
+            const step1Total = parseFloat(document.getElementById('total-price').textContent.replace(/,/g, '')) || 0;
+            const basicFactor = calcBasicFactor();
+            let total = step1Total * basicFactor;
+            Object.keys(selectedAddons).forEach(addon => {
+                const card = document.querySelector(`.addon-card[data-addon='${addon}']`);
+                total += parseFloat(card.dataset.priceMin || 0);
+            });
+            document.getElementById('step2-total').textContent = Math.round(total).toLocaleString();
+        }
+        // Initialize
+        updateBasicFactor();
+    })();
+    </script>
+
+    <!-- Education Section (English only, after Design Portal) -->
+    <section id="education" class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-light mb-4">Education</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">Learn about landscape design, plant selection, and sustainable practices. Our resources help you make informed decisions for your dream garden.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+          <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition">
+            <i class="fas fa-leaf text-4xl text-[#4A6741] mb-4"></i>
+            <h3 class="text-2xl font-medium mb-2">Design Principles</h3>
+            <p class="text-gray-600 mb-4">Explore the fundamentals of landscape design, including balance, unity, and scale.</p>
+            <a href="#" class="btn-secondary px-6 py-2 rounded-md mt-auto">Read More</a>
+          </div>
+          <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition">
+            <i class="fas fa-seedling text-4xl text-[#4A6741] mb-4"></i>
+            <h3 class="text-2xl font-medium mb-2">Plant Selection</h3>
+            <p class="text-gray-600 mb-4">Find the best plants for your climate, soil, and style preferences.</p>
+            <a href="#" class="btn-secondary px-6 py-2 rounded-md mt-auto">Read More</a>
+          </div>
+          <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition">
+            <i class="fas fa-recycle text-4xl text-[#4A6741] mb-4"></i>
+            <h3 class="text-2xl font-medium mb-2">Sustainability</h3>
+            <p class="text-gray-600 mb-4">Learn how to create an eco-friendly garden that conserves water and supports wildlife.</p>
+            <a href="#" class="btn-secondary px-6 py-2 rounded-md mt-auto">Read More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Inspiration Section (English only, after Education) -->
+    <section id="inspiration" class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-light mb-4">Inspiration</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">Explore our portfolio of beautiful landscape projects. Click any image to see more from that project.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8">
+          <a href="inspiration.html#Beaumont Residence" class="block group">
+            <div class="aspect-[4/3] bg-stone-100 overflow-hidden rounded-lg shadow">
+              <img src="INSPIRATIONS/Beaumont Residence/15-Lascelles-Ave-6-of-15-scaled.jpg" alt="Beaumont Residence" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            </div>
+            <div class="mt-3 text-center font-semibold text-lg">Beaumont Residence</div>
+          </a>
+          <a href="inspiration.html#Dulwich Residence" class="block group">
+            <div class="aspect-[4/3] bg-stone-100 overflow-hidden rounded-lg shadow">
+              <img src="INSPIRATIONS/Dulwich Residence/2-2.jpg" alt="Dulwich Residence" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            </div>
+            <div class="mt-3 text-center font-semibold text-lg">Dulwich Residence</div>
+          </a>
+          <a href="inspiration.html#Nailsworh Residence" class="block group">
+            <div class="aspect-[4/3] bg-stone-100 overflow-hidden rounded-lg shadow">
+              <img src="INSPIRATIONS/Nailsworh Residence/42-Mawson-st-4-of-15-scaled.jpg" alt="Nailsworh Residence" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            </div>
+            <div class="mt-3 text-center font-semibold text-lg">Nailsworh Residence</div>
+          </a>
+          <a href="inspiration.html#Ormiston Residence" class="block group">
+            <div class="aspect-[4/3] bg-stone-100 overflow-hidden rounded-lg shadow">
+              <img src="INSPIRATIONS/Ormiston Residence/Ormiston Residence.jpg" alt="Ormiston Residence" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            </div>
+            <div class="mt-3 text-center font-semibold text-lg">Ormiston Residence</div>
+          </a>
+          <a href="inspiration.html#Ryde Residence" class="block group">
+            <div class="aspect-[4/3] bg-stone-100 overflow-hidden rounded-lg shadow">
+              <img src="INSPIRATIONS/Ryde Residence/Yan-1.jpg" alt="Ryde Residence" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            </div>
+            <div class="mt-3 text-center font-semibold text-lg">Ryde Residence</div>
+          </a>
+          <a href="inspiration.html#Parkside Residence" class="block group">
+            <div class="aspect-[4/3] bg-stone-100 overflow-hidden rounded-lg shadow">
+              <img src="INSPIRATIONS/Parkside Residence/Parkside-5-of-25-scaled.jpg" alt="Parkside Residence" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            </div>
+            <div class="mt-3 text-center font-semibold text-lg">Parkside Residence</div>
+          </a>
+        </div>
+        <div class="flex justify-center">
+          <a href="inspiration.html" class="btn-secondary px-8 py-3 rounded-md text-lg font-medium">Read More</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Streamlined Retaining Wall & Area Estimator Section -->
+    <section class="max-w-4xl mx-auto bg-white rounded-lg shadow p-6 my-12" id="retaining-wall-estimator">
+      <h2 class="text-2xl font-bold mb-4">Landscape Area & Retaining Wall Estimator</h2>
+      <div class="mb-4">
+        <label class="block font-medium mb-1">Base Rate:</label>
+        <div class="mb-2 text-green-700 font-semibold">$150 AUD per m²</div>
+      </div>
+      <div class="mb-4">
+        <label class="block font-medium mb-1">Is your site flat or sloped?</label>
+        <select id="site-slope" class="border rounded px-3 py-2 w-40">
+          <option value="">Select</option>
+          <option value="flat">Flat</option>
+          <option value="sloped">Sloped</option>
+        </select>
+      </div>
+      <div id="retaining-wall-section" class="mb-4 hidden">
+        <label class="block font-medium mb-1">Do you need a retaining wall?</label>
+        <select id="need-wall" class="border rounded px-3 py-2 w-40">
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+          <option value="not-sure">Not sure</option>
+        </select>
+        <div id="wall-details" class="mt-4 hidden">
+          <label class="block font-medium mb-1">Select wall height:</label>
+          <select id="wall-height" class="border rounded px-3 py-2 w-40 mb-4">
+            <option value="">Select</option>
+            <option value="0.5">0.5m</option>
+            <option value="1.0">1.0m</option>
+            <option value="1.5">1.5m</option>
+            <option value="2.0">2.0m</option>
+          </select>
+          <label class="block font-medium mb-2">Select wall type:</label>
+          <div class="flex flex-wrap gap-6 mb-4">
+            <label class="block text-center cursor-pointer">
+              <input type="radio" name="wall-type" value="sleeper" class="mb-2" checked>
+              <img src="Images/Retaining_wall/Concrete_Sleeper_Hero.jpg" alt="Concrete Sleeper" class="w-32 h-20 object-cover rounded mb-1 border">
+              <div class="font-semibold">Concrete Sleeper Retaining Wall</div>
+            </label>
+            <label class="block text-center cursor-pointer">
+              <input type="radio" name="wall-type" value="block" class="mb-2">
+              <img src="Images/Retaining_wall/Concrete_Block_Hero.jpg" alt="Concrete Block" class="w-32 h-20 object-cover rounded mb-1 border">
+              <div class="font-semibold">Concrete Block Wall</div>
+            </label>
+            <label class="block text-center cursor-pointer">
+              <input type="radio" name="wall-type" value="rendered" class="mb-2">
+              <img src="Images/Retaining_wall/Rendered_Block_Hero.jpg" alt="Rendered Block" class="w-32 h-20 object-cover rounded mb-1 border">
+              <div class="font-semibold">Rendered Concrete Block Wall</div>
+            </label>
+          </div>
+          <div id="wall-type-table" class="mb-4"></div>
+          <label class="block font-medium mb-1">Enter wall length (metres):</label>
+          <input type="number" id="wall-length" min="0.1" step="0.1" class="border rounded px-3 py-2 w-40 mb-2">
+          <div id="wall-price-result" class="font-semibold text-green-700"></div>
+        </div>
+      </div>
+    </section>
+    <script>
+    // Show/hide retaining wall section
+    document.getElementById('site-slope').onchange = function() {
+      document.getElementById('retaining-wall-section').classList.toggle('hidden', this.value !== 'sloped');
+      document.getElementById('wall-details').classList.add('hidden');
+      document.getElementById('wall-price-result').textContent = '';
+    };
+    // Show/hide wall details
+    document.getElementById('need-wall').onchange = function() {
+      document.getElementById('wall-details').classList.toggle('hidden', this.value !== 'yes');
+      document.getElementById('wall-price-result').textContent = '';
+    };
+    // Wall price tables
+    const wallPrices = {
+      sleeper: { '0.5': [250, 350], '1.0': [350, 500], '1.5': [500, 650], '2.0': [600, 800] },
+      block:   { '0.5': [400, 500], '1.0': [550, 700], '1.5': [700, 850], '2.0': [850, 1100] },
+      rendered:{ '0.5': [500, 600], '1.0': [650, 850], '1.5': [800, 1000], '2.0': [1000, 1300] }
+    };
+    // Show price table for selected wall type
+    function updateWallTypeTable() {
+      const type = document.querySelector('input[name="wall-type"]:checked').value;
+      const table = wallPrices[type];
+      let html = '<table class="table-auto text-xs"><thead><tr><th class="px-2">Height</th><th class="px-2">Price/LM (AUD)</th></tr></thead><tbody>';
+      for (const h of ['0.5','1.0','1.5','2.0']) {
+        html += `<tr><td class="px-2">${h}m</td><td class="px-2">$${table[h][0]} – $${table[h][1]}</td></tr>`;
+      }
+      html += '</tbody></table>';
+      document.getElementById('wall-type-table').innerHTML = html;
+    }
+    updateWallTypeTable();
+    document.querySelectorAll('input[name="wall-type"]').forEach(radio => {
+      radio.onchange = updateWallTypeTable;
+    });
+    // Calculate wall price
+    function updateWallPrice() {
+      const height = document.getElementById('wall-height').value;
+      const length = parseFloat(document.getElementById('wall-length').value);
+      const type = document.querySelector('input[name="wall-type"]:checked').value;
+      if (!height || !length) {
+        document.getElementById('wall-price-result').textContent = '';
+        return;
+      }
+      const [min, max] = wallPrices[type][height];
+      const minTotal = min * length;
+      const maxTotal = max * length;
+      document.getElementById('wall-price-result').textContent =
+        `Estimated Total: $${minTotal.toLocaleString()} – $${maxTotal.toLocaleString()} AUD`;
+    }
+    document.getElementById('wall-height').onchange = updateWallPrice;
+    document.getElementById('wall-length').oninput = updateWallPrice;
+    document.querySelectorAll('input[name="wall-type"]').forEach(radio => {
+      radio.onchange = updateWallPrice;
+    });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terrain Admin - 后台管理</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .btn-primary {
+            background: #4A6741;
+            color: white;
+            transition: all 0.3s;
+        }
+        .btn-primary:hover {
+            background: #3d5a35;
+        }
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid #4A6741;
+            color: #4A6741;
+            transition: all 0.3s;
+        }
+        .btn-secondary:hover {
+            background: #4A6741;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-semibold text-gray-800">
+                    <span class="text-[#4A6741]">Terrain</span> Admin
+                </h1>
+            </div>
+            <div class="flex space-x-4">
+                <a href="index.html" class="btn-secondary px-4 py-2 rounded-md text-sm">View Website</a>
+                <button onclick="exportData()" class="btn-secondary px-4 py-2 rounded-md text-sm">Export Data</button>
+                <button onclick="importData()" class="btn-secondary px-4 py-2 rounded-md text-sm">Import Data</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-6xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-light mb-4">Inspiration Gallery Management</h2>
+                <p class="text-gray-600">Manage your gallery content here. All changes are automatically saved to your browser's local storage.</p>
+            </div>
+
+            <!-- Add New Item -->
+            <div class="bg-white rounded-lg shadow p-6 mb-8">
+                <h3 class="text-xl font-medium mb-4">Add New Image</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-gray-700 mb-2">Image Title</label>
+                        <input type="text" id="new-title" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4A6741]" placeholder="e.g. Modern Courtyard Design">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Image Description</label>
+                        <textarea id="new-description" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4A6741]" placeholder="Describe the features and style of this design..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Image URL</label>
+                        <input type="text" id="new-image-url" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4A6741]" placeholder="e.g. Images/portfolio/modern-courtyard.jpg">
+                    </div>
+                    <div class="flex items-end">
+                        <button onclick="addNewItem()" class="btn-primary px-6 py-2 rounded-md">Add Image</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Items List -->
+            <div class="bg-white rounded-lg shadow">
+                <div class="p-6 border-b border-gray-200">
+                    <h3 class="text-xl font-medium">Existing Images</h3>
+                </div>
+                <div id="items-container" class="p-6">
+                    <!-- Dynamically loaded image items -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden file input for import -->
+    <input type="file" id="import-file" accept=".json" style="display: none;" onchange="handleImportFile(event)">
+
+    <script>
+        // 数据管理
+        let inspirationItems = [];
+
+        // 初始化数据
+        function initData() {
+            const saved = localStorage.getItem('inspirationItems');
+            if (saved) {
+                inspirationItems = JSON.parse(saved);
+            } else {
+                // 默认数据
+                inspirationItems = [
+                    {
+                        id: 1,
+                        title: "Modern Courtyard",
+                        description: "Clean lines and minimalist design create a sophisticated urban retreat.",
+                        imageUrl: "Images/portfolio/modern-courtyard.jpg"
+                    },
+                    {
+                        id: 2,
+                        title: "Family Garden",
+                        description: "A multi-functional space for entertaining, play, and relaxation.",
+                        imageUrl: "Images/portfolio/family-garden.jpg"
+                    },
+                    {
+                        id: 3,
+                        title: "Zen Garden",
+                        description: "A tranquil Japanese-inspired garden with water features and careful plantings.",
+                        imageUrl: "Images/portfolio/zen-garden.jpg"
+                    },
+                    {
+                        id: 4,
+                        title: "Coastal Garden",
+                        description: "Salt-tolerant plantings and natural materials complement the oceanfront setting.",
+                        imageUrl: "Images/portfolio/coastal-garden.jpg"
+                    },
+                    {
+                        id: 5,
+                        title: "Terraced Hillside",
+                        description: "A challenging slope transformed into a series of usable garden rooms.",
+                        imageUrl: "Images/portfolio/terraced-hillside.jpg"
+                    },
+                    {
+                        id: 6,
+                        title: "Outdoor Entertainment",
+                        description: "A complete outdoor living space with kitchen, fireplace, and dining area.",
+                        imageUrl: "Images/portfolio/outdoor-entertainment.jpg"
+                    }
+                ];
+                saveData();
+            }
+            renderItems();
+        }
+
+        // 保存数据
+        function saveData() {
+            localStorage.setItem('inspirationItems', JSON.stringify(inspirationItems));
+        }
+
+        // 渲染项目列表
+        function renderItems() {
+            const container = document.getElementById('items-container');
+            container.innerHTML = '';
+
+            inspirationItems.forEach((item, index) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'border border-gray-200 rounded-lg p-4 mb-4';
+                itemDiv.innerHTML = `
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="w-full md:w-1/3">
+                            <div class="aspect-[4/3] bg-gray-100 rounded overflow-hidden">
+                                <img src="${item.imageUrl}" alt="${item.title}" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="w-full h-full flex items-center justify-center text-gray-400" style="display: none;">
+                                    <i class="fas fa-image text-4xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-1">Title</label>
+                                <input type="text" value="${item.title}" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#4A6741]" onchange="updateItem(${index}, 'title', this.value)">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-1">Description</label>
+                                <textarea rows="3" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#4A6741]" onchange="updateItem(${index}, 'description', this.value)">${item.description}</textarea>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-1">Image URL</label>
+                                <input type="text" value="${item.imageUrl}" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#4A6741]" onchange="updateItem(${index}, 'imageUrl', this.value)">
+                            </div>
+                            <div class="flex justify-end">
+                                <button onclick="deleteItem(${index})" class="text-red-500 hover:text-red-700 px-3 py-1 rounded">
+                                    <i class="fas fa-trash"></i> Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(itemDiv);
+            });
+        }
+
+        // 更新项目
+        function updateItem(index, field, value) {
+            inspirationItems[index][field] = value;
+            saveData();
+        }
+
+        // 删除项目
+        function deleteItem(index) {
+            if (confirm('Are you sure you want to delete this item?')) {
+                inspirationItems.splice(index, 1);
+                saveData();
+                renderItems();
+            }
+        }
+
+        // 添加新项目
+        function addNewItem() {
+            const title = document.getElementById('new-title').value.trim();
+            const description = document.getElementById('new-description').value.trim();
+            const imageUrl = document.getElementById('new-image-url').value.trim();
+
+            if (!title || !description || !imageUrl) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            const newItem = {
+                id: Date.now(),
+                title: title,
+                description: description,
+                imageUrl: imageUrl
+            };
+
+            inspirationItems.push(newItem);
+            saveData();
+            renderItems();
+
+            // 清空表单
+            document.getElementById('new-title').value = '';
+            document.getElementById('new-description').value = '';
+            document.getElementById('new-image-url').value = '';
+
+            alert('Item added successfully!');
+        }
+
+        // 导出数据
+        function exportData() {
+            const dataStr = JSON.stringify(inspirationItems, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'inspiration-data.json';
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // 导入数据
+        function importData() {
+            document.getElementById('import-file').click();
+        }
+
+        // 处理导入文件
+        function handleImportFile(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        const data = JSON.parse(e.target.result);
+                        inspirationItems = data;
+                        saveData();
+                        renderItems();
+                        alert('Data imported successfully!');
+                    } catch (error) {
+                        alert('File format error, please select a valid JSON file');
+                    }
+                };
+                reader.readAsText(file);
+            }
+        }
+
+        // 页面加载时初始化
+        document.addEventListener('DOMContentLoaded', initData);
+    </script>
+</body>
+</html> 
